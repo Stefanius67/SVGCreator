@@ -1,0 +1,17 @@
+#
+# start onn commandline from base directory of the package:
+# 	phpstan analyse
+#
+# more infos and download:
+#	https://phpstan.org/user-guide/getting-started
+# 	https://github.com/phpstan/phpstan
+#
+parameters:
+	level: 6
+	paths:
+		- SKien/Google
+		- SKien/VCard
+		- Vendor/Psr
+	excludePaths:
+		analyse:
+			- Vendor/Psr

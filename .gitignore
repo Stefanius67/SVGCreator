@@ -1,0 +1,7 @@
+/.settings/
+/.buildpath
+/.project
+/test/coverage/
+/data/
+/wiki/
+/doc/*.html
