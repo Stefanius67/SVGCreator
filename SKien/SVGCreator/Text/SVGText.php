@@ -7,16 +7,36 @@ namespace SKien\SVGCreator\Text;
 use SKien\SVGCreator\SVGElement;
 
 /**
- * Element that draws text. It's possible to apply a gradient, pattern, clipping
- * path, mask, or filter to <text>, like any other SVG graphics element.
+ * Element that draws text.
  *
- * @see SVGText::__construct
+ * It's possible to apply a gradient, pattern, clipping
+ * path, mask, or filter to a text element, like any other SVG graphics element.
+ *
+ * The alignment of the text relative to the given position can be set with the
+ * `setTextAlign()`and `setVAlign()` methods.
+ *
+ * The adjustment of the text glyphs can be controled by setting the text length
+ * and the glyph adjustment.
+ *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts#textpath
+ * @link https://www.w3schools.com/graphics/svg_textpath.asp
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
 class SVGText extends SVGElement
 {
+    /** valid values to add text align to style (!! not to use with setTextAlign!!)    */
+    public const STYLE_ALIGN_START     = 'text-anchor: start; ';
+    public const STYLE_ALIGN_MIDDLE    = 'text-anchor: middle; ';
+    public const STYLE_ALIGN_END       = 'text-anchor: end; ';
+
+    /** valid values to add text vertical align to style (!! not to use with setVAlign!!)   */
+    public const STYLE_VALIGN_AUTO     = 'dominant-baseline: auto; ';
+    public const STYLE_VALIGN_MIDDLE   = 'dominant-baseline: middle; ';
+    public const STYLE_VALIGN_HANGING  = 'dominant-baseline: hangin; ';
+
     /**
      * Element that draws text.
      * @param float|string $x
@@ -61,6 +81,10 @@ class SVGText extends SVGElement
      */
     public function setTextAlign(string $strAlign) : void
     {
+        if (strpos($strAlign, ':') !== false) {
+            // typical missuse of one of the const self::STYLE_ALIGN_xxx
+            trigger_error('invalid value for setTextAlign: ' . $strAlign, E_USER_WARNING);
+        }
         $this->setAttribute('text-anchor', $strAlign);
     }
 
@@ -74,26 +98,34 @@ class SVGText extends SVGElement
      */
     public function setVAlign(string $strVAlign) : void
     {
+        if (strpos($strVAlign, ':') !== false) {
+            // typical missuse of one of the const self::STYLE_VALIGN_xxx
+            trigger_error('invalid value for setTextAlign: ' . $strVAlign, E_USER_WARNING);
+        }
         $this->setAttribute('dominant-baseline', $strVAlign);
     }
 
     /**
      * Sets the rotation (in degrees) applied to each letter of the text.
-     * @param float|string $length
+     * @param float|string $rotate
      */
     public function setRotation(float|string $rotate) : void
     {
-        $this->oPath->setAttribute('rotate', $rotate);
+        $this->setAttribute('rotate', $rotate);
     }
-
 
     /**
      * Sets the width that the text must fit in.
+     * The text is compressed or stretched to fit in the defined width.
+     * By default, only the spacing between characters is adjusted, but the
+     * glyph size can also be adjusted by setting lengthAdjust to
+     * `SVG::LENGTH_ADJUST_SPACING_AND_GLYPHS`.
+     * @see SVGText::setLengthAdjust()
      * @param float|string $length
      */
     public function setTextLength(float|string $length) : void
     {
-        $this->oPath->setAttribute('textLength', $length);
+        $this->setAttribute('textLength', $length);
     }
 
     /**
@@ -102,11 +134,14 @@ class SVGText extends SVGElement
      * Valid values are
      * - SVG::LENGTH_ADJUST_SPACING (default)
      * - SVG::LENGTH_ADJUST_SPACING_AND_GLYPHS
+     * @see SVGText::setTextLength()
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/textLength
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lengthAdjust
      * @param string $strAdjust
      */
     public function setLengthAdjust(string $strAdjust) : void
     {
-        $this->oPath->setAttribute('lengthAdjust', $strAdjust);
+        $this->setAttribute('lengthAdjust', $strAdjust);
     }
 
     /**

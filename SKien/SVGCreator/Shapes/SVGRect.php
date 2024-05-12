@@ -7,8 +7,7 @@ namespace SKien\SVGCreator\Shapes;
 /**
  * Element to draw a rect.
  *
- * @see SVGRect::__construct
- *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#rect
  * @link https://www.w3schools.com/graphics/svg_rect.asp
  *

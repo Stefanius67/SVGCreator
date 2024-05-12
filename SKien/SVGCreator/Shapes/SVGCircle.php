@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace SKien\SVGCreator\Shapes;
 
 /**
- * Element to draw a rect.
+ * Element to draw a circle.
  *
- * @see SVGCircle::__construct
- *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#circle
  * @link https://www.w3schools.com/graphics/svg_circle.asp
  *
@@ -19,9 +18,10 @@ class SVGCircle extends SVGShape
 {
     /**
      * Element to draw a circle.
-     * @param float $x
-     * @param float $y
-     * @param float $r
+     * @see SVGCircle
+     * @param float $x      The x position of the center of the circle.
+     * @param float $y      The y position of the center of the circle.
+     * @param float $r      The radius of the circle.
      * @param string $strStyleOrClass
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle
      */

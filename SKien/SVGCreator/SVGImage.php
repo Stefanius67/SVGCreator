@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace SKien\SVGCreator;
 
 /**
- * Element that includes other images inside the SVG document. It can display
- * raster image files or other SVG files.
+ * Element that includes other images inside the SVG document.
  *
- * @see SVGImage::__construct
+ * It can display raster image files or other SVG files. The only image formats
+ * SVG software must support are JPEG, PNG, and other SVG files. Animated GIF
+ * behavior is undefined.
+ *
+ * Unlike an HTML 'img' element, where the size (height and width) may be determined
+ * from the source file, the values for the width and height must be specified for
+ * the SVG 'image' element.
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
@@ -16,12 +21,16 @@ namespace SKien\SVGCreator;
 class SVGImage extends SVGElement
 {
     /**
-     * Element that draws text.
-     * @param float|string $x
-     * @param float|string $y
-     * @param string $strText
+     * Element that includes other images inside the SVG document.
+     * The position of the image inside of the specified rect can be set using
+     * the `setPreserveAspectRatio()` method.
+     * @param float|string $x       x-position of the image
+     * @param float|string $y       y-position of the image
+     * @param float|string $width   width of the image
+     * @param float|string $height  height of the image
+     * @param string $strHref       the image to draw
      * @param string $strStyleOrClass
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/image
      */
     public function __construct(float|string $x, float|string $y, float|string $width, float|string $height, string $strHref, string $strStyleOrClass = null)
     {
@@ -32,19 +41,5 @@ class SVGImage extends SVGElement
         $this->setAttribute('width', $width);
         $this->setAttribute('height', $height);
         $this->setAttribute('href', $strHref);
-    }
-
-    /**
-     * Sets the way, how the image is scaled.
-     * By default the aspect-ratio of the source image is kept and the imoge is fit
-     * inside the given rect.
-     * NONE:
-     *      width and height of the source image is stretched to the given rect
-     *
-     * @param string|float $size
-     */
-    public function setPreserveAspectRatio(string $preserve) : void
-    {
-        $this->setAttribute('preserveAspectRatio', $preserve);
     }
 }

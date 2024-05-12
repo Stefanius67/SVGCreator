@@ -7,14 +7,7 @@ namespace SKien\SVGCreator\Shapes;
 use SKien\SVGCreator\SVGElement;
 
 /**
- * Base class for all shapes:
- * - circle
- * - ellipse
- * - line
- * - path
- * - polygon
- * - polyline
- * - rect
+ * Base class for all shapes.
  *
  * @see SVGCircle
  * @see SVGEllipse

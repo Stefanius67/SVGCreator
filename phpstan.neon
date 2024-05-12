@@ -10,5 +10,3 @@ parameters:
 	level: 6
 	paths:
 		- SKien/SVGCreator
-	excludePaths:
-		analyse:

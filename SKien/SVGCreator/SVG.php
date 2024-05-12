@@ -1,11 +1,22 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SKien\SVGCreator;
 
+use SKien\SVGCreator\Filter\SVGFilter;
+use SKien\SVGCreator\Gradients\SVGGradient;
+
 /**
+ * Class to maintain the root element of a SVG image.
  *
- * Another package: {@link https://github.com/meyfa/php-svg/tree/main}
+ * An instance of this class can be used to
+ * - generate a '*.svg' image file using the `save()` method.
+ * - for direct output including appropriate http header using the `output()` method.
+ * - embedd it into another svg image using the `add()` method of the image where to embed.
+ * - directly insert the resulting code in html code using the `getSVG()` method.
+ *
+ * To get a more readable output, the 'pretty output' can be enabled.
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
@@ -22,15 +33,19 @@ class SVG extends SVGElement
     public const VALIGN_MIDDLE   = 'middle';
     public const VALIGN_HANGING  = 'hangin';
 
-    /** valid values for Text/TextPath length adjustment    */
-    public const LENGTH_ADJUST_SPACING              = 'spacingAndGlyphs';
+    /** lengthAdjust: only the spacing between the glyphs is adjusted    */
+    public const LENGTH_ADJUST_SPACING              = 'spacing';
+    /** lengthAdjust: spacing and the glyphs are adjusted    */
     public const LENGTH_ADJUST_SPACING_AND_GLYPHS   = 'spacingAndGlyphs';
 
-    /** valid values for TextPath rendering    */
+    /** Renders the text at the left side of the path */
     public const RENDER_LEFT                        = 'left';
-    public const RENDER_RICGHT                      = 'right';
+    /** Renders the text at the left right of the path */
+    public const RENDER_RIGHT                       = 'right';
+    /** Valid values for the method to use to render individual glyphs along a path  */
     public const METHOD_ALIGN                       = 'align';
     public const METHOD_STRETCH                     = 'stretch';
+    /** Valid values how the space between glyphs should be handled  */
     public const GLYPH_SPACING_AUTO                 = 'auto';
     public const GLYPH_SPACING_EXACT                = 'exact';
 
@@ -41,21 +56,44 @@ class SVG extends SVGElement
     /** @var bool   if true, the DOM output is formated and includes comments    */
     protected bool $bPrettyOutput = false;
 
-    public function __construct()
+    /**
+     * Creates a SVG root element.
+     * The svg element is a container that defines a new coordinate system and viewport.
+     * It is used as the outermost element of SVG documents (*-> the root*), but it can
+     * also be used to embed an SVG fragment inside an SVG or HTML document.
+     * @param bool $bIsRoot   element is the root element of an image.
+     */
+    public function __construct(bool $bIsRoot = true)
     {
         parent::__construct('svg');
 
         $this->oRoot = $this;
-        $this->setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        if ($bIsRoot) {
+            // **Note:** <br>
+            // The xmlns attribute is only required on the svg root element of SVG documents,
+            // or inside HTML documents with XML serialization.
+            $this->setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        }
         $this->oDefs = new SVGElement('defs');
         $this->add($this->oDefs);
     }
 
+    /**
+     * Sets or resets the 'pretty output' mode.
+     * If the 'pretty output' mode is enabled, the resulting SVG image is formatted
+     * for better human readability and comments are inserted. If the mode is
+     * deactivate (default), white spaces are preserved and no comments are included.
+     * @param bool $bPretty set or reset the 'pretty output' mode
+     */
     public function setPrettyOutput(bool $bPretty) : void
     {
         $this->bPrettyOutput = $bPretty;
     }
 
+    /**
+     * Gets the 'pretty output' mode.
+     * @return bool
+     */
     public function isPrettyOutput() : bool
     {
         return $this->bPrettyOutput;
@@ -63,6 +101,9 @@ class SVG extends SVGElement
 
     /**
      * Sets the size of the image.
+     * > **Note:** <br>
+     * > In an HTML document if both the viewBox and width attributes are omitted,
+     * > the svg element will be rendered with a width of 300px.
      * @param string|float $width
      * @param string|float $height
      */
@@ -81,6 +122,7 @@ class SVG extends SVGElement
      * @param float $yMin
      * @param float $width
      * @param float $height
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
      */
     public function setViewbox(float $xMin, float $yMin, float $width, float $height) : void
     {
@@ -88,7 +130,10 @@ class SVG extends SVGElement
     }
 
     /**
-     * @param SVGElement $oElement
+     * Adds a element to the imag definitions (`defs`).
+     * If the element has no ID set so far, an unique id for the element type is
+     * generated and set.
+     * @param SVGElement $oElement  the element to add
      * @return SVGElement
      */
     public function addDef(SVGElement $oElement) : SVGElement
@@ -100,16 +145,61 @@ class SVG extends SVGElement
     }
 
     /**
-     * Adds global style to the image.
-     * @param string $strStyle
+     * Adds a filter to the SVG defs.
+     * > This method directly calls `addDef()` and  only exist for typesafe returning
+     * > of the added filter.
+     * > It allows typesafe codesnipets like
+     * <pre>
+     *   $oFilter = $oSVG->addFilter(new SVGSaturationFilter(0.5));
+     *   $oCircle = $oSVG->add(new Circle(100, 100, 50));
+     *   $oCircle->setFilter($oFilter);
+     * </pre>
+     * @param SVGFilter $oFilter
+     * @return SVGFilter
      */
-    public function addStyleDef(string $strStyleDef) : void
+    public function addFilter(SVGFilter $oFilter) : SVGFilter
     {
-        $this->add(new SVGCData('style', $strStyleDef));
+        $this->addDef($oFilter);
+        return $oFilter;
     }
 
     /**
-     * Create DOM element and append it to the requested parent node.
+     * Adds a fradient to the SVG defs.
+     * > This method directly calls `addDef()` and  only exist for typesafe returning
+     * > of the added gradient. <br>
+     * > It allows typesafe codesnipets like
+     * <pre>
+     *   $oGradient = $oSVG->addGradient(new SVGSimpleGradient('red', 'yellow', SVGSimpleGradient::LINEAR_HORZ));
+     *   $oCircle = $oSVG->add(new Circle(100, 100, 50));
+     *   $oCircle->setGradient($oGradient);
+     * </pre>
+     * @param SVGGradient $oGradient
+     * @return SVGGradient
+     */
+    public function addGradient(SVGGradient $oGradient) : SVGGradient
+    {
+        $this->addDef($oGradient);
+        return $oGradient;
+    }
+
+    /**
+     * Adds global style to the image.
+     * A style element allows style sheets to be embedded directly within SVG content. <br>
+     * > **Note:** <br>
+     * > SVG's style element has the same attributes as the corresponding element in HTML
+     * @param string $strStyleDef   content of the stylesheet
+     * @param string $strMedia      an optional media query
+     * @link ht
+     */
+    public function addStyleDef(string $strStyleDef, string $strMedia = null) : void
+    {
+        $oStyle = new SVGCData('style', $strStyleDef);
+        $oStyle->setAttribute('media', $strMedia);
+        $this->add($oStyle);
+    }
+
+    /**
+     * Creates a DOM document containing the svg definitions.
      * @return \DOMDocument
      */
     public function buildDOM() : \DOMDocument
@@ -125,7 +215,7 @@ class SVG extends SVGElement
     }
 
     /**
-     * Build an unique ID for the requested element.
+     * Builds an unique ID for the requested element.
      * @param string $strElement
      * @return string
      */
@@ -140,8 +230,12 @@ class SVG extends SVGElement
 
     /**
      * Outputs the image preceeded by the HTTP header.
+     * If a filename is provided, the `Content-Disposition: attachment` header is
+     * added that forcees the browser to display the 'file save' dialog to download
+     * the generated image file.
+     * @param string $strFilename   optional filename to force the browser to show the download dialog
      */
-    public function output() : void
+    public function output(string $strFilename = null) : void
     {
         $oDOM = $this->buildDOM();
 
@@ -149,10 +243,28 @@ class SVG extends SVGElement
 
         header('Content-Type: image/svg+xml; charset=utf-8');
         header('Content-Length: ' . strlen($strSVG));
+        if ($strFilename !== null) {
+            header('Content-Disposition: attachment; filename=' . $strFilename);
+        }
         echo $strSVG;
     }
 
     /**
+     * Gets the SVG - source as string.
+     * @return string
+     */
+    public function getSVG() : string
+    {
+        $oDOM = $this->buildDOM();
+
+        $strXML = $oDOM->saveXML();
+        $strSVG = preg_replace('/^<\?xml.*?>/', '', $strXML);
+
+        return trim($strSVG);
+    }
+
+    /**
+     * Saves the image to a file with the given filename on the server.
      * @param string $strFilename
      */
     public function save(string $strFilename) : void

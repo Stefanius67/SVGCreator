@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SKien\SVGCreator\Shapes;
 
 /**
- * Helper trait for poly elements
+ * Helper trait for poly elements.
  * - Polyline
  * - Polygon
  *
@@ -30,14 +30,14 @@ trait SVGPolyTrait
      *     [xn, xn],
      * ];
      * </pre>
-     * @param array $aPoints
+     * @param array<mixed> $aPoints
      * @return string
      */
     public function buildPoints(array $aPoints) : string
     {
         $strPoints = '';
         if (count($aPoints) > 0) {
-            if (is_array($aPoints[])) {
+            if (is_array($aPoints[0])) {
                 $strPoints = implode(' ', array_map(function(array $a) { return implode(',', $a);}, $aPoints));
             } else {
                 // check for even count?

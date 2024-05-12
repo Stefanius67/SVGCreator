@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace SKien\SVGCreator\Shapes;
 
 /**
- * Generic element to define a shape.
+ * Creates a path for drawing or to use for rendering text along.
  *
- * @see SVGPath::__construct
- *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path
  * @link https://www.w3schools.com/graphics/svg_path.asp
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
  *
@@ -17,10 +16,11 @@ namespace SKien\SVGCreator\Shapes;
  */
 class SVGPath extends SVGShape
 {
-    protected string $strLastCmd = '';
+    /** @var string     the previous called command     */
+    protected string $strPrevCmd = '';
 
     /**
-     * Generic element to define a shape.
+     * Creates a path for drawing or to use for rendering text along.
      * @param string $strStyleOrClass
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path
      */
@@ -32,78 +32,86 @@ class SVGPath extends SVGShape
     }
 
     /**
+     * Moves the cursor to the given position.
      * @param float $x
      * @param float $y
      */
     public function moveTo(float $x, float $y) : void
     {
-        $this->strLastCmd = 'M';
+        $this->strPrevCmd = 'M';
         $this->oAttrib['d'] .= "M $x $y ";
     }
 
     /**
+     * Moves the cursor by the given distances from the current position.
      * @param float $dx
      * @param float $dy
      */
     public function move(float $dx, float $dy) : void
     {
-        $this->strLastCmd = 'm';
+        $this->strPrevCmd = 'm';
         $this->oAttrib['d'] .= "m $dx $dy ";
     }
 
     /**
+     * Draws a line from the current position to the new position.
      * @param float $x
      * @param float $y
      */
     public function lineTo(float $x, float $y) : void
     {
-        $this->strLastCmd = 'L';
+        $this->strPrevCmd = 'L';
         $this->oAttrib['d'] .= "L $x $y ";
     }
 
     /**
+     * Draws a line from the current position by the given distances.
      * @param float $dx
      * @param float $dy
      */
     public function line(float $dx, float $dy) : void
     {
-        $this->strLastCmd = 'l';
+        $this->strPrevCmd = 'l';
         $this->oAttrib['d'] .= "l $dx $dy ";
     }
 
     /**
+     * Draws a horizontal line from the current position to the new x position.
      * @param float $x
      */
     public function horzLineTo(float $x) : void
     {
-        $this->strLastCmd = 'H';
+        $this->strPrevCmd = 'H';
         $this->oAttrib['d'] .= "H $x ";
     }
 
     /**
+     * Draws a horizontal line from the current position by the given x distance.
      * @param float $dx
      */
     public function horzLine(float $dx) : void
     {
-        $this->strLastCmd = 'h';
+        $this->strPrevCmd = 'h';
         $this->oAttrib['d'] .= "h $dx ";
     }
 
     /**
+     * Draws a vertical line from the current position to the new y position.
      * @param float $y
      */
     public function vertLineTo(float $y) : void
     {
-        $this->strLastCmd = 'V';
+        $this->strPrevCmd = 'V';
         $this->oAttrib['d'] .= "V $y ";
     }
 
     /**
+     * Draws a vertical line from the current position by the given y distance.
      * @param float $dy
      */
     public function vertLine(float $dy) : void
     {
-        $this->strLastCmd = 'v';
+        $this->strPrevCmd = 'v';
         $this->oAttrib['d'] .= "v $dy ";
     }
 
@@ -117,7 +125,7 @@ class SVGPath extends SVGShape
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs
+     * Draws an arc at given position.
      * @param float $rx
      * @param float $ry
      * @param float $xAxisRotation
@@ -125,17 +133,18 @@ class SVGPath extends SVGShape
      * @param bool|int $sweep
      * @param float $x
      * @param float $y
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs
      */
     public function arcAt(float $rx, float $ry, float $xAxisRotation, bool|int $largeArc, bool|int $sweep, float $x, float $y) : void
     {
         $iLargeArc = (int) $largeArc;
         $iSweep = (int) $sweep;
-        $this->strLastCmd = 'A';
+        $this->strPrevCmd = 'A';
         $this->oAttrib['d'] .= "A $rx $ry, $xAxisRotation, $iLargeArc, $iSweep, $x $y ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs
+     * Draws an arc at given distance from current position.
      * @param float $rx
      * @param float $ry
      * @param float $xAxisRotation
@@ -143,128 +152,161 @@ class SVGPath extends SVGShape
      * @param bool|int $sweep
      * @param float $dx
      * @param float $dy
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs
      */
     public function arc(float $rx, float $ry, float $xAxisRotation, bool|int $largeArc, bool|int $sweep, float $dx, float $dy) : void
     {
         $iLargeArc = (int) $largeArc;
         $iSweep = (int) $sweep;
-        $this->strLastCmd = 'a';
+        $this->strPrevCmd = 'a';
         $this->oAttrib['d'] .= "a $rx $ry, $xAxisRotation, $iLargeArc, $iSweep, $dx $dy ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a bézier curve to the new position.
      * @param float $x1
      * @param float $y1
      * @param float $x2
      * @param float $y2
      * @param float $x
      * @param float $y
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
-    public function curveAt(float $x1, float $y1, float $x2, float $y2, float $x, float $y) : void
+    public function curveTo(float $x1, float $y1, float $x2, float $y2, float $x, float $y) : void
     {
-        $this->strLastCmd = 'C';
+        $this->strPrevCmd = 'C';
         $this->oAttrib['d'] .= "C $x1 $y1, $x2 $y2, $x $y ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a bézier curve by the given distance.
      * @param float $dx1
      * @param float $dy1
      * @param float $dx2
      * @param float $dy2
      * @param float $dx
      * @param float $dy
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
     public function curve(float $dx1, float $dy1, float $dx2, float $dy2, float $dx, float $dy) : void
     {
-        $this->strLastCmd = 'c';
+        $this->strPrevCmd = 'c';
         $this->oAttrib['d'] .= "c $dx1 $dy1, $dx2 $dy2, $dx $dy ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a smooth bézier curve to the new position.
+     * 'Smooth' curve means that several bézier curves can be strung together to create extended,
+     * smooth shapes. The control point on the start side will be a reflection of the control point
+     * used on the end side of the previous bézier curve. <br>
+     * This command can only be used, if the previous command was already a full or smooth bézier curve.
      * @param float $x2
      * @param float $y2
      * @param float $x
      * @param float $y
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
-    public function smoothCurveAt(float $x2, float $y2, float $x, float $y) : void
+    public function smoothCurveTo(float $x2, float $y2, float $x, float $y) : void
     {
-        if ($this->strLastCmd !== 'S' && $this->strLastCmd !== 'C') {
+        if ($this->strPrevCmd !== 'S' && $this->strPrevCmd !== 'C') {
             trigger_error('A smoothCurve . command can only follows a curve or another smoothCurve - command!', E_USER_WARNING);
         }
-        $this->strLastCmd = 'S';
+        $this->strPrevCmd = 'S';
         $this->oAttrib['d'] .= "S $x2 $y2, $x $y ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a smooth bézier curve by the given distance.
+     * 'Smooth' curve means that several bézier curves can be strung together to create extended,
+     * smooth shapes. The control point on the start side will be a reflection of the control point
+     * used on the end side of the previous bézier curve. <br>
+     * This command can only be used, if the previous command was already a full or smooth bézier curve.
      * @param float $dx2
      * @param float $dy2
      * @param float $dx
      * @param float $dy
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
     public function smoothCurve(float $dx2, float $dy2, float $dx, float $dy) : void
     {
-        if ($this->strLastCmd !== 's' && $this->strLastCmd !== 'c') {
+        if ($this->strPrevCmd !== 's' && $this->strPrevCmd !== 'c') {
             trigger_error('A smoothCurve . command can only follows a curve or another smoothCurve - command!', E_USER_WARNING);
         }
-        $this->strLastCmd = 's';
+        $this->strPrevCmd = 's';
         $this->oAttrib['d'] .= "s $dx2 $dy2, $dx $dy ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a quadratic bézier curve to the new position.
+     * The quadratic curve is actually a simpler curve than the cubic one. It requires one
+     * control point which determines the slope of the curve at both the start point and
+     * the end point.
      * @param float $x1
      * @param float $y1
      * @param float $x
      * @param float $y
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
-    public function quadraticCurveAt(float $x1, float $y1, float $x, float $y) : void
+    public function quadraticCurveTo(float $x1, float $y1, float $x, float $y) : void
     {
-        $this->strLastCmd = 'Q';
+        $this->strPrevCmd = 'Q';
         $this->oAttrib['d'] .= "Q $x1 $y1, $x $y ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a quadratic bézier curve by the given distance.
+     * The quadratic curve is actually a simpler curve than the cubic one. It requires one
+     * control point which determines the slope of the curve at both the start point and
+     * the end point.
      * @param float $dx1
      * @param float $dy1
      * @param float $dx
      * @param float $dy
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
     public function quadraticCurve(float $dx1, float $dy1, float $dx, float $dy) : void
     {
-        $this->strLastCmd = 'q';
+        $this->strPrevCmd = 'q';
         $this->oAttrib['d'] .= "q $dx1 $dy1, $dx $dy ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a smooth quadratic bézier curve to the new position.
+     * 'Smooth' curve means that several bézier curves can be strung together to create extended,
+     * smooth shapes. The control point on the start side will be a reflection of the control point
+     * used on the end side of the previous bézier curve. <br>
+     * This command can only be used, if the previous command was already a full or smooth quadratic
+     * bézier curve.
      * @param float $x
      * @param float $y
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
-    public function smoothQuadraticCurveAt(float $x, float $y) : void
+    public function smoothQuadraticCurveTo(float $x, float $y) : void
     {
-        if ($this->strLastCmd !== 'Q' && $this->strLastCmd !== 'T') {
+        if ($this->strPrevCmd !== 'Q' && $this->strPrevCmd !== 'T') {
             trigger_error('A smoothQuadraticCurve . command can only follows a quadraticCurve or another smoothQuadraticCurve - command!', E_USER_WARNING);
         }
-        $this->strLastCmd = 'T';
+        $this->strPrevCmd = 'T';
         $this->oAttrib['d'] .= "T $x $y ";
     }
 
     /**
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
+     * Draws a smooth quadratic bézier curve by the given distance.
+     * 'Smooth' curve means that several bézier curves can be strung together to create extended,
+     * smooth shapes. The control point on the start side will be a reflection of the control point
+     * used on the end side of the previous bézier curve. <br>
+     * This command can only be used, if the previous command was already a full or smooth quadratic
+     * bézier curve.
      * @param float $dx
      * @param float $dy
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#curve_commands
      */
     public function smoothQuadraticCurve(float $dx, float $dy) : void
     {
-        if ($this->strLastCmd !== 'q' && $this->strLastCmd !== 't') {
+        if ($this->strPrevCmd !== 'q' && $this->strPrevCmd !== 't') {
             trigger_error('A smoothQuadraticCurve . command can only follows a quadraticCurve or another smoothQuadraticCurve - command!', E_USER_WARNING);
         }
-        $this->strLastCmd = 't';
+        $this->strPrevCmd = 't';
         $this->oAttrib['d'] .= "t $dx $dy ";
     }
 }

@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace SKien\SVGCreator\Filter;
+namespace SKien\SVGCreator\Filter\Effects;
 
 /**
+ * This effect allows to offset the input image.
  *
- * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feOffset
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class SVGOffsetFilter extends SVGFilterEffect
+class SVGOffsetEffect extends SVGEffect
 {
     /**
-     * @param string $strIn the result name of previous filter or one of the `SVGFilter::SVGFilter::IN_xxx` const
+     * @param string $strIn the result name of previous filter or one of the `SVGEffect::IN_xxx` const
      * @param float $dx
      * @param float $dy
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feOffset

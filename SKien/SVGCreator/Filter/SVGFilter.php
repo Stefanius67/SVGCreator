@@ -5,45 +5,39 @@ declare(strict_types=1);
 namespace SKien\SVGCreator\Filter;
 
 use SKien\SVGCreator\SVGElement;
+use SKien\SVGCreator\Filter\Effects\SVGEffect;
 
 /**
+ * Container element for several filter effects.
  *
- * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/in#workaround_for_backgroundimage
+ * A plain filter has no attributes. The result of a filter depends on the
+ * efect(s) that are added to perform special operations with the input image
+ * or it's alphachannel.
+ * The `id` to reference a created filter does not necessarily have to be
+ * set, as each filter automatically receives a unique ID when added to the
+ * SVG defs by calling `SVG::addFilter()` if not already has been set.
+ *
+ * The default width and height of a image resulting from a filter is 120%.
+ * (means, 10% 'margin' to the input image in each direction). If the result after
+ * applying the filtereffects is more the size and/or position of the filter may
+ * need to be adjusted.
+ *
+ * @see SVGAttributesTrait::setPos()
+ * @see SVGAttributesTrait::setSize()
+ *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
+ *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/width#filter
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height#filter
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
 class SVGFilter extends SVGElement
 {
-    public const IN_SOURCE_GRAPHIC  = 'SourceGraphic';
-    public const IN_SOURCE_ALPHA    = 'SourceAlpha';
-    public const IN_BCKGND_GRAPHIC  = 'BackgroundImage';
-    public const IN_BCKGND_ALPHA    = 'BackgroundAlpha';
-    public const IN_FILL_PAINT      = 'FillPaint';
-    public const IN_STROKE_PAINT    = 'StrokePaint';
-
-    public const BLEND_NORMAL       = 'normal';
-    public const BLEND_MULTIPLY     = 'multiply';
-    public const BLEND_SCREEN       = 'screen';
-    public const BLEND_OVERLAY      = 'overlay';
-    public const BLEND_DARKEN       = 'darken';
-    public const BLEND_LIGHTEN      = 'lighten';
-    public const BLEND_COLOR_DODGE  = 'color-dodge';
-    public const BLEND_COLOR_BURN   = 'color-burn';
-    public const BLEND_HARD_LIGHT   = 'hard-light';
-    public const BLEND_SOFT_LIGHT   = 'soft-light';
-    public const BLEND_DIFFERENCE   = 'difference';
-    public const BLEND_EXCLUSION    = 'exclusion';
-    public const BLEND_HUE          = 'hue';
-    public const BLEND_SATURATION   = 'saturation';
-    public const BLEND_COLOR        = 'color';
-    public const BLEND_LUMINOSITY   = 'luminosity';
-
-    public const EDGE_MODE_DUPLICATE    = 'duplicate';
-    public const EDGE_MODE_WRAP         = 'wrap';
-
     /**
-     *
+     * Creates the container for filter effects.
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
      */
     public function __construct()
     {
@@ -51,10 +45,12 @@ class SVGFilter extends SVGElement
     }
 
     /**
-     * @param SVGFilterEffect $oEffect
+     * @param SVGEffect $oEffect
+     * @param string $strResult
      */
-    public function addEffect(SVGFilterEffect $oEffect) : void
+    public function addEffect(SVGEffect $oEffect, string $strResult = null) : void
     {
         $this->add($oEffect);
+        $oEffect->setAttribute('result', $strResult);
     }
 }

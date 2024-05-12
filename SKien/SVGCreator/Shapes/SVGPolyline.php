@@ -7,8 +7,7 @@ namespace SKien\SVGCreator\Shapes;
 /**
  * Element that creates straight lines connecting several points.
  *
- * @see SVGPolyline::__construct
- *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline
  * @link https://www.w3schools.com/graphics/svg_polyline.asp
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#polyline
  *
@@ -22,13 +21,13 @@ class SVGPolyline extends SVGShape
     /**
      * Element that creates straight lines connecting several points.
      * @see \SKien\SVGCreator\Shapes\SVGPolyTrait::buildPoints()
-     * @param array $aPoints
+     * @param array<mixed> $aPoints
      * @param string $strStyleOrClass
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline
      */
     public function __construct(array $aPoints, string $strStyleOrClass = null)
     {
-        parent::__construct('polyline', $strStyleOrClass);
+        parent::__construct('polyline', '', $strStyleOrClass);
 
         $this->setAttribute('points', $this->buildPoints($aPoints));
     }

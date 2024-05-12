@@ -4,23 +4,25 @@ declare(strict_types=1);
 
 namespace SKien\SVGCreator\Gradients;
 
-
 /**
+ * Creates a linear gradient.
+ *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
+ *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
 class SVGLinearGradient extends SVGGradient
 {
     /**
-     * Creates a radial gradient.
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
-     *
+     * Creates a linear gradient.
      * @param float|string $x1
      * @param float|string $x2
      * @param float|string $y1
      * @param float|string $y2
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
      */
-    public function __construct(float|string $x1, float|string $x2, float|string $y1, float|string $y2)
+    public function __construct(float|string $x1 = null, float|string $x2 = null, float|string $y1 = null, float|string $y2 = null)
     {
         parent::__construct('linearGradient');
 

@@ -7,8 +7,7 @@ namespace SKien\SVGCreator\Shapes;
 /**
  * Element to draw a ellipse.
  *
- * @see SVGEllipse::__construct
- *
+ * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/ellipse
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#ellipse
  * @link https://www.w3schools.com/graphics/svg_ellipse.asp
  *
@@ -19,10 +18,11 @@ class SVGEllipse extends SVGShape
 {
     /**
      * Element to draw a ellipse.
-     * @param float $x
-     * @param float $y
-     * @param float $rx
-     * @param float $ry
+     * @see SVGEllipse
+     * @param float $x      The x position of the center of the ellipse.
+     * @param float $y      The y position of the center of the ellipse.
+     * @param float $rx     The radius of the ellipse on the x axis.
+     * @param float $ry     The radius of the ellipse on the y axis.
      * @param string $strStyleOrClass
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/ellipse
      */
