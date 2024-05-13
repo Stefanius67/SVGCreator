@@ -32,6 +32,19 @@ class SVGPath extends SVGShape
     }
 
     /**
+     * Creates a new SVGPath element direct from a string definition.
+     * @param string $strPath
+     * @return SVGPath
+     */
+    static function fromString(string $strPath) : SVGPath
+    {
+        $oPath = new SVGPath();
+        $oPath->setAttribute('d', $strPath);
+
+        return $oPath;
+    }
+
+    /**
      * Moves the cursor to the given position.
      * @param float $x
      * @param float $y

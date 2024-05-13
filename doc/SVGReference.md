@@ -41,32 +41,24 @@ Is not supported/needed so far.
 
 ### supported filters
 - `SVGBlendFilter`
-- `SVGFloodFilter`
+- `SVGColorMatrix`
+- `SVGComponentTransfer`
+- `SVGComposite`
+- `SVGDiffuseLighting`
 - `SVGDropShadowFilter`
+- `SVGFloodFilter`
+- `SVGGaussianBlur`
+- `SVGMerge`
+- `SVGOffset`
+- `SVGSpecularLighting`
+- `SVGTurbulence`
 
 ### so far unsupported filters
-- feColorMatrix
-- feComponentTransfer
-- feComposite
 - feConvolveMatrix
-- feDiffuseLighting
 - feDisplacementMap
-- feDistantLight
-- feFuncA
-- feFuncB
-- feFuncG
-- feFuncR
-- feGaussianBlur
 - feImage
-- feMerge
-- feMergeNode
 - feMorphology
-- feOffset
-- fePointLight
-- feSpecularLighting
-- feSpotLight
 - feTile
-- feTurbulence
 
 ## foreignObject
 
@@ -78,9 +70,7 @@ Is not supported/needed so far.
 
 ## image
 
-[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/image)
-
-TODO
+`SVGImage`
 
 ## line
 

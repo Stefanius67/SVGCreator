@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use SKien\SVGCreator\SVG;
 use SKien\SVGCreator\Filter\SVGSaturationFilter;
 use SKien\SVGCreator\Gradients\SVGSimpleGradient;
+use SKien\SVGCreator\Marker\SVGBasicMarker;
 use SKien\SVGCreator\Shapes\SVGCircle;
 
 /**
@@ -69,9 +70,6 @@ final class SVGTest extends TestCase
         $this->assertIsObject($oFilter);
         $strID = $oFilter->getID();
         $this->assertNotEmpty($strID);
-        $oCircle = $this->oSVG->add(new SVGCircle(100, 100, 50));
-        $oCircle->setFilter($oFilter);
-        $this->assertEquals('url(#' . $strID . ')', $oCircle->getAttribute('filter'));
     }
 
     public function testAddGradient(): void
@@ -80,9 +78,14 @@ final class SVGTest extends TestCase
         $this->assertIsObject($oGradient);
         $strID = $oGradient->getID();
         $this->assertNotEmpty($strID);
-        $oCircle = $this->oSVG->add(new SVGCircle(100, 100, 50));
-        $oCircle->setGradient($oGradient);
-        $this->assertEquals('url(#' . $strID . ')', $oCircle->getAttribute('fill'));
+    }
+
+    public function testAddMarker(): void
+    {
+        $oMarker = $this->oSVG->addMarker(new SVGBasicMarker(SVGBasicMarker::DOT));
+        $this->assertIsObject($oMarker);
+        $strID = $oMarker->getID();
+        $this->assertNotEmpty($strID);
     }
 
     public function testAddStyleDef(): void

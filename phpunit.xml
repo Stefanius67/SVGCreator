@@ -4,7 +4,8 @@
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" 
     verbose="true" 
     colors="true" 
-    bootstrap="autoloader.php">
+    bootstrap="autoloader.php" 
+	cacheResult="false">
   <coverage>
     <include>
       <directory suffix=".php">SKien/SVGCreator</directory>
@@ -12,7 +13,8 @@
     <report>
       <clover outputFile="./clover.xml"/>
       <html outputDirectory="Tests/SKien/SVGCreator/coverage"/>
-      <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
+      <!-- <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/> -->
+	  <text outputFile="./coverage.txt" showUncoveredFiles="true" showOnlySummary="true"/>
     </report>
   </coverage>
   <testsuites>

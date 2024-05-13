@@ -44,6 +44,12 @@ final class SVGPathTest extends TestCase
         $this->assertEquals('path', $this->oSVGPath->getName());
     }
 
+    public function testFromString(): void
+    {
+        $this->oSVGPath = SVGPath::fromString('M 10 20 L 30 40');
+        $this->expectPathEnd('L 30 40');
+    }
+
     public function testMoveTo(): void
     {
         $this->oSVGPath->moveTo(10, 20);

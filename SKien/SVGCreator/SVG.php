@@ -6,6 +6,7 @@ namespace SKien\SVGCreator;
 
 use SKien\SVGCreator\Filter\SVGFilter;
 use SKien\SVGCreator\Gradients\SVGGradient;
+use SKien\SVGCreator\Marker\SVGMarker;
 
 /**
  * Class to maintain the root element of a SVG image.
@@ -164,7 +165,7 @@ class SVG extends SVGElement
     }
 
     /**
-     * Adds a fradient to the SVG defs.
+     * Adds a gradient to the SVG defs.
      * > This method directly calls `addDef()` and  only exist for typesafe returning
      * > of the added gradient. <br>
      * > It allows typesafe codesnipets like
@@ -180,6 +181,17 @@ class SVG extends SVGElement
     {
         $this->addDef($oGradient);
         return $oGradient;
+    }
+
+    /**
+     * Adds a marker to the SVG defs.
+     * @param SVGMarker $oMarker
+     * @return SVGMarker
+     */
+    public function addMarker(SVGMarker $oMarker) : SVGMarker
+    {
+        $this->addDef($oMarker);
+        return $oMarker;
     }
 
     /**
