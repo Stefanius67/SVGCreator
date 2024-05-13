@@ -53,7 +53,7 @@ For usage see the several examples
 - PreserveAspectRatio.php
 - TextLengthAdjust.php
 
-## Dosumnetation
+## Documentation
 
 A full documentation can be found in the Wiki at 
 [GitHub.com](https://github.com/Stefanius67/SVGCreator/wiki/Class--Reference)
