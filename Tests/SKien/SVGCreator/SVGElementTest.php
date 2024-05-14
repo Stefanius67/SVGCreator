@@ -304,4 +304,15 @@ final class SVGElementTest extends TestCase
         $this->oSVGElement->setGradient($oGrad);
         $this->assertEquals('url(#myID)', $this->oSVGElement->getAttribute('fill'));
     }
+
+    public function testSetClipPath() : void
+    {
+        $this->oSVGElement->setClipPath('pathID');
+        $this->assertEquals('url(#pathID)', $this->oSVGElement->getAttribute('clip-path'));
+
+        $oPath = new SVGElement('clipPath');
+        $oPath->setID('myID');
+        $this->oSVGElement->setClipPath($oPath);
+        $this->assertEquals('url(#myID)', $this->oSVGElement->getAttribute('clip-path'));
+    }
 }

@@ -369,6 +369,21 @@ trait SVGAttributesTrait
     }
 
     /**
+     * Sets a clipppath to the element.
+     * To define a clippath, just create a `SVGElement('clipPath')` and add
+     * the elements/shapes that defines the path.
+     * @param string|SVGElement $id
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/clipPath
+     */
+    public function setClipPath(string|SVGElement $id) : void
+    {
+        if (!is_string($id)) {
+            $id = $id->getID();
+        }
+        $this->setAttribute('clip-path', "url(#$id)");
+    }
+
+    /**
      * Adds the requested transformation.
      * Multiple transformations can be combined just by concatenate them separated by
      * a blank.

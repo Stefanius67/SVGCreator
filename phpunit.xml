@@ -13,8 +13,8 @@
     <report>
       <clover outputFile="./clover.xml"/>
       <html outputDirectory="Tests/SKien/SVGCreator/coverage"/>
-      <!-- <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/> -->
-	  <text outputFile="./coverage.txt" showUncoveredFiles="true" showOnlySummary="true"/>
+      <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
+	  <!-- <text outputFile="./coverage.txt" showUncoveredFiles="true" showOnlySummary="true"/> -->
     </report>
   </coverage>
   <testsuites>

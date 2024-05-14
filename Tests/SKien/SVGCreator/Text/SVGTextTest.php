@@ -94,6 +94,12 @@ final class SVGTextTest extends TestCase
         $this->assertEquals('spacing', $this->oSVGText->getAttribute('lengthAdjust'));
     }
 
+    public function testSetTextRendering(): void
+    {
+        $this->oSVGText->setTextRendering(SVGText::RENDER_GEOMETRIC_PRECISION);
+        $this->assertEquals('geometricPrecision', $this->oSVGText->getAttribute('text-rendering'));
+    }
+
     public function testShift(): void
     {
         $this->oSVGText->shift(10, 20);
