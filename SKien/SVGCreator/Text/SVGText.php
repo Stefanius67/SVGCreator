@@ -37,6 +37,12 @@ class SVGText extends SVGElement
     public const STYLE_VALIGN_MIDDLE   = 'dominant-baseline: middle; ';
     public const STYLE_VALIGN_HANGING  = 'dominant-baseline: hangin; ';
 
+    /** valid values for the `setTextRendering()` method   */
+    public const RENDER_AUTO                = 'auto';
+    public const RENDER_OPTIMIZE_SPEED      = 'optimizeSpeed';
+    public const RENDER_OPTIMIZE_LEGIBILITY = 'optimizeLegibility';
+    public const RENDER_GEOMETRIC_PRECISION = 'geometricPrecision';
+
     /**
      * Element that draws text.
      * @param float|string $x
@@ -142,6 +148,16 @@ class SVGText extends SVGElement
     public function setLengthAdjust(string $strAdjust) : void
     {
         $this->setAttribute('lengthAdjust', $strAdjust);
+    }
+
+    /**
+     * Sets hints to the renderer about what tradeoffs to make when rendering text.
+     * @param string $strTextRendering  one of the self::RENDER_xxx consts
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-rendering
+     */
+    public function setTextRendering(string $strTextRendering) : void
+    {
+        $this->setAttribute('text-rendering', $strTextRendering);
     }
 
     /**
