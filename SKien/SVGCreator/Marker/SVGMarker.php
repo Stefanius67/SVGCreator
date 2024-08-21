@@ -18,7 +18,7 @@ use SKien\SVGCreator\SVGElement;
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/marker
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGMarker extends SVGElement
 {
@@ -49,23 +49,6 @@ class SVGMarker extends SVGElement
 
         $this->setAttribute('markerWidth', $width);
         $this->setAttribute('markerHeight', $height);
-    }
-
-    /**
-     * Sets the viewbox for the image.
-     * The viewBox defines the position and dimension, in user space.
-     * `xMin` and `yMin` represent the top left coordinates of the viewport. `width`
-     * and `height` represent its dimensions.
-     * TODO: move the funtion to a new Trait that can be used by other elements.
-     * @param float $xMin
-     * @param float $yMin
-     * @param float $width
-     * @param float $height
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
-     */
-    public function setViewbox(float $xMin, float $yMin, float $width, float $height) : void
-    {
-        $this->setAttribute('viewBox', implode(' ', [$xMin, $yMin, $width, $height]));
     }
 
     /**

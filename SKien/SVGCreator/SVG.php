@@ -20,7 +20,7 @@ use SKien\SVGCreator\Marker\SVGMarker;
  * To get a more readable output, the 'pretty output' can be enabled.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVG extends SVGElement
 {
@@ -115,23 +115,7 @@ class SVG extends SVGElement
     }
 
     /**
-     * Sets the viewbox for the image.
-     * The viewBox defines the position and dimension, in user space.
-     * `xMin` and `yMin` represent the top left coordinates of the viewport. `width`
-     * and `height` represent its dimensions.
-     * @param float $xMin
-     * @param float $yMin
-     * @param float $width
-     * @param float $height
-     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
-     */
-    public function setViewbox(float $xMin, float $yMin, float $width, float $height) : void
-    {
-        $this->setAttribute('viewBox', implode(' ', [$xMin, $yMin, $width, $height]));
-    }
-
-    /**
-     * Adds a element to the imag definitions (`defs`).
+     * Adds a element to the image definitions (`defs`).
      * If the element has no ID set so far, an unique id for the element type is
      * generated and set.
      * @param SVGElement $oElement  the element to add
@@ -192,6 +176,17 @@ class SVG extends SVGElement
     {
         $this->addDef($oMarker);
         return $oMarker;
+    }
+
+    /**
+     * Adds a symbol to the SVG defs.
+     * @param SVGSymbol $oSymbol
+     * @return SVGSymbol
+     */
+    public function addSymbol(SVGSymbol $oSymbol) : SVGSymbol
+    {
+        $this->addDef($oSymbol);
+        return $oSymbol;
     }
 
     /**

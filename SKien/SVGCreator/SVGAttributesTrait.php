@@ -20,7 +20,7 @@ use SKien\SVGCreator\Helper\Attrib;
  * > To be able to use only the needed attributes in the extending classes
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 trait SVGAttributesTrait
 {
@@ -103,6 +103,22 @@ trait SVGAttributesTrait
     {
         $this->setAttribute('width', $width);
         $this->setAttribute('height', $height);
+    }
+
+    /**
+     * Sets the viewbox for the image.
+     * The viewBox defines the position and dimension, in user space.
+     * `xMin` and `yMin` represent the top left coordinates of the viewport. `width`
+     * and `height` represent its dimensions.
+     * @param float $xMin
+     * @param float $yMin
+     * @param float $width
+     * @param float $height
+     * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
+     */
+    public function setViewbox(float $xMin, float $yMin, float $width, float $height) : void
+    {
+        $this->setAttribute('viewBox', implode(' ', [$xMin, $yMin, $width, $height]));
     }
 
     /**
@@ -207,7 +223,9 @@ trait SVGAttributesTrait
     public function translate(float $x, float $y = null) : void
     {
         $y = $y ?? $x;
-        $this->addTransformation("translate($x, $y)");
+        if ($x != 0 || $y != 0) {
+            $this->addTransformation("translate($x, $y)");
+        }
     }
 
     /**
@@ -221,7 +239,7 @@ trait SVGAttributesTrait
      * // results in
      * rect(200, 200, 400, 100);
      * </pre>
-     * @see SVGAttributesTrait::setTransformOrigin()
+     * @see setTransformOrigin()
      * @param float $x
      * @param float $y
      * @param float|string $xOrg    x-position of the transformation origin
@@ -231,7 +249,9 @@ trait SVGAttributesTrait
     public function scale(float $x, float $y = null, float|string $xOrg = null, float|string $yOrg = null) : void
     {
         $y = $y ?? $x;
-        $this->addTransformation("scale($x, $y)");
+        if ($x != 1 || $y != 1) {
+            $this->addTransformation("scale($x, $y)");
+        }
         $this->setTransformOrigin($xOrg, $yOrg);
     }
 
@@ -240,7 +260,7 @@ trait SVGAttributesTrait
      * Note that the element is also moved by the horizontal flipping. Therefore it
      * is recommended  to set the X-origin of the transformation to the center of the
      * element to be mirrored.
-     * @see SVGAttributesTrait::setTransformOrigin()
+     * @see setTransformOrigin()
      * @param float|string $xOrg    x-position of the transformation origin
      * @param float|string $yOrg    y-position of the transformation origin
      * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#scale
