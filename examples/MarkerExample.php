@@ -4,12 +4,12 @@
  * This example demonstrates the usage of markers.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 
 declare(strict_types=1);
 
-include 'autoloader.php';
+include '../autoloader.php';
 
 use SKien\SVGCreator\SVG;
 use SKien\SVGCreator\Marker\SVGArrowMarker;
