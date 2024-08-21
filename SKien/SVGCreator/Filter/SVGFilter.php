@@ -31,7 +31,7 @@ use SKien\SVGCreator\Filter\Effects\SVGEffect;
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height#filter
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGFilter extends SVGElement
 {

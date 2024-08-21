@@ -10,7 +10,7 @@ namespace SKien\SVGCreator\Gradients;
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGLinearGradient extends SVGGradient
 {

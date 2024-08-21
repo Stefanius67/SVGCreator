@@ -12,7 +12,7 @@ namespace SKien\SVGCreator\Shapes;
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#line
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGLine extends SVGShape
 {

@@ -16,7 +16,7 @@ namespace SKien\SVGCreator;
  * the SVG 'image' element.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGImage extends SVGElement
 {

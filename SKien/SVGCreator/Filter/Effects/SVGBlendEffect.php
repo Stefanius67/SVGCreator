@@ -11,7 +11,7 @@ namespace SKien\SVGCreator\Filter\Effects;
  * @link https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGBlendEffect extends SVGEffect
 {

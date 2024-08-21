@@ -18,7 +18,7 @@ use SKien\SVGCreator\Filter\Effects\SVGOffsetEffect;
  * instead, the alpha channel colored accordingly before blured.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGBlurShadowFilter extends SVGFilter
 {

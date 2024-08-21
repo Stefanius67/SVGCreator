@@ -23,7 +23,7 @@ use SKien\SVGCreator\Filter\Effects\SVGTurbulenceEffect;
  * @link https://css-tricks.com/creating-patterns-with-svg-filters/
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGWoodFilter extends SVGFilter
 {

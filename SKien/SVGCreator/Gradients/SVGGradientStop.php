@@ -10,7 +10,7 @@ use SKien\SVGCreator\SVGElement;
  * Stop element for a gradient definition.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGGradientStop extends SVGElement
 {

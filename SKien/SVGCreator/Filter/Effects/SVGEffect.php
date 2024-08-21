@@ -10,7 +10,7 @@ use SKien\SVGCreator\SVGElement;
  * Baseclass for any filter effects.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGEffect extends SVGElement
 {

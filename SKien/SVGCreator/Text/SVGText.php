@@ -23,7 +23,7 @@ use SKien\SVGCreator\SVGElement;
  * @link https://www.w3schools.com/graphics/svg_textpath.asp
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGText extends SVGElement
 {

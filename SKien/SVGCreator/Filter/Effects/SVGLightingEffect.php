@@ -10,7 +10,7 @@ use SKien\SVGCreator\SVGElement;
  * Base class for ligting effects.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 abstract class SVGLightingEffect extends SVGEffect
 {

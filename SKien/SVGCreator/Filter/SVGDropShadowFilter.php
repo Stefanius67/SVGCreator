@@ -10,7 +10,7 @@ use SKien\SVGCreator\Filter\Effects\SVGDropShadowEffect;
  * Simple filter that uses the DropShaddowEffect.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGDropShadowFilter extends SVGFilter
 {

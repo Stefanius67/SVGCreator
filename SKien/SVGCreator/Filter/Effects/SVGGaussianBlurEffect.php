@@ -27,7 +27,7 @@ namespace SKien\SVGCreator\Filter\Effects;
  * @link https://en.wikipedia.org/wiki/Gaussian_blur
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGGaussianBlurEffect extends SVGEffect
 {
