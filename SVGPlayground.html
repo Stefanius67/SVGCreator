@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="de-de">
+<head>
+<script>
+var g_iWidth = 1000;
+var g_iHeight = 1000;
+var g_iGrid = 20;
+
+function onLoad()
+{
+	var oSrc = document.getElementById('src');
+	oSrc.setAttribute('wrap', 'off');  // set 'wrap' through JS since the IDE don't knows value 'off' and markes as warning in HTML
+	oSrc.addEventListener('keyup', onSrcChanged);
+	oSrc.addEventListener('keydown', onSrcKeyDown);
+	document.querySelectorAll('[data-element]').forEach((oElement) => {
+        oElement.addEventListener('click', insertElement);
+    });
+	oSrc.value = 
+		'<?xml version="1.0" encoding="UTF-8"?>' + "\n" +
+		'<svg xmlns="http://www.w3.org/2000/svg" width="' + g_iWidth + '" height="' + g_iHeight + '">' + "\n" +
+		'</svg>' + "\n";
+	insertGrid(oSrc.value.indexOf('</svg>'));
+    var oSvg = document.getElementById('svg');
+    oSvg.addEventListener('click', onDisplayCoord);
+}
+
+function onSrcChanged()
+{
+	var oSrc = document.getElementById('src');
+	var oSvg = document.getElementById('svg');
+	oSvg.innerHTML = oSrc.value;
+}
+
+function onDisplayCoord(evt)
+{
+    var oPos = document.getElementById('pos');
+    oPos.innerHTML = evt.offsetX + ', ' + evt.offsetY;
+}
+
+function insertGrid(iPos)
+{
+	var strGrid = '  <g style="stroke: #999; stroke-dasharray: 1 2;">' + "\n";
+	for (var x = g_iGrid; x < g_iWidth; x += g_iGrid) {
+        strGrid += '    <line x1="' + x + '" y1="0" x2="' + x + '" y2="' + g_iHeight + '" stroke-width="' + (x % 100 == 0 ? 2 : 1) + '"/>' + "\n"; 
+	}
+    for (var y = g_iGrid; y < g_iHeight; y += g_iGrid) {
+        strGrid += '    <line x1="0" y1="' + y + '" x2="' + g_iWidth + '" y2="' + y + '" stroke-width="' + (y % 100 == 0 ? 2 : 1) + '"/>' + "\n"; 
+    }
+    strGrid += '  </g>' + "\n";
+    var oSrc = document.getElementById('src');
+    oSrc.value = oSrc.value.substring(0, iPos) + strGrid + oSrc.value.substring(iPos);
+    oSrc.setSelectionRange(iPos + strGrid.length, iPos + strGrid.length);
+    onSrcChanged();
+}
+
+function insertElement(evt)
+{
+	const aElements = {
+        'Line':       '<line x1="0" y1="0" x2="100" y2="100" stroke="#000"/>',
+		'Rect':       '<rect x="100" y="100" width="100" height="100" fill="#f00" stroke="#000" transform="rotate(45, 150, 150)"/>',
+        'Ellipse':    '<ellipse rx="40" ry="60" cx="100" cy="100" fill="#f00" stroke="#000" transform="rotate(45, 100, 100)"/>',
+        'Path':       '<path d="M 200 200 L 250 250 L 300 200 L 250 300 Z" fill="#0f0" stroke="#00f"/>',
+	};
+    const strElementType = evt.srcElement.getAttribute('data-element');
+    const oSrc = document.getElementById('src');
+	if (typeof strElementType !== 'undefined' && typeof aElements[strElementType] !== 'undefined' && typeof oSrc.selectionStart !== 'undefined') {
+        var iStart = oSrc.selectionStart;
+        const strElement = "\n" + '  ' + aElements[strElementType];
+        oSrc.value = oSrc.value.substring(0, iStart) + strElement + oSrc.value.substring(iStart);
+        iStart += strElement.length;
+        oSrc.setSelectionRange(iStart, iStart);
+        onSrcChanged();
+        oSrc.focus();
+        evt.preventDefault();
+	}
+}
+
+function onSrcKeyDown(evt)
+{
+	if (evt.ctrlKey !== true) {
+		return;
+	}
+	switch (evt.key) {
+		case 'ArrowDown':
+			scrollSelectedValue(evt.shiftKey === true ? -10 : -1);
+			evt.preventDefault();
+			break;
+		case 'ArrowUp':
+			scrollSelectedValue(evt.shiftKey === true ? 10 : 1);
+			evt.preventDefault();
+			break;
+	}
+}
+
+function wrapPath()
+{
+	var oSrc = document.getElementById('src');
+	if (typeof oSrc.selectionStart === 'undefined') {
+		return;
+	}
+	var iStart = oSrc.selectionStart;
+	var iEnd = oSrc.selectionEnd;
+	if (iStart === iEnd) {
+		return;
+	}
+	strSelection = oSrc.value.substring(iStart, iEnd);
+	strSelection = strSelection.replaceAll(',', ' ');
+	var aPartCount = {
+		'M': 2,
+		'L': 2,
+		'H': 1,
+		'V': 1,
+		'C': 6,
+		'S': 4,
+		'Q': 4,
+		'T': 2,
+		'A': 7,
+		'Z': 0,
+	};
+	for (var chElement in aPartCount) {
+	    strSelection = strSelection.replaceAll(chElement, ' ' + chElement + ' ');
+        chElement = chElement.toLowerCase();
+	    strSelection = strSelection.replaceAll(chElement, ' ' + chElement + ' ');
+    };	
+    strSelection = strSelection.replaceAll('  ', ' ');
+    var aParts = strSelection.split(' ');
+	
+	var chElement = '';
+	var strPath = "\n";
+	var iParts = aParts.length;
+	var iLastPart = 0;
+	var i = 0;
+	while (i < iParts) {
+	    while (i < iParts && aParts[i].trim() == '') {
+	    	i++;
+	    }
+        if (i >= iParts) {
+        	break;
+        }
+		if (isNaN(aParts[i].trim())) {
+			chElement = aParts[i].trim();
+			if (typeof aPartCount[chElement.toUpperCase()] === 'undefined') {
+				alert('Parse error!');
+				return;
+			}
+			i++;
+		}
+		strPath += chElement + ' ';
+		iLastPart = i + aPartCount[chElement.toUpperCase()];
+		while (i < iParts && i < iLastPart) {
+	        while (i < iParts && aParts[i].trim() == '') {
+	            i++;
+	            iLastPart++;
+	        }
+	        if (i < iParts) {
+				strPath += aParts[i].trim() + ' ';
+				i++;
+	        }
+		}
+		strPath += "\n";
+	}
+	oSrc.value = oSrc.value.substring(0, iStart) + strPath + oSrc.value.substring(iEnd);
+	oSrc.setSelectionRange(iStart, iStart);
+	onSrcChanged();
+    oSrc.focus();
+}
+
+function unwrapPath()
+{
+	var oSrc = document.getElementById('src');
+	if (typeof oSrc.selectionStart === 'undefined') {
+		return;
+	}
+	var iStart = oSrc.selectionStart;
+	var iEnd = oSrc.selectionEnd;
+	if (iStart === iEnd) {
+		return;
+	}
+	strSelection = oSrc.value.substring(iStart, iEnd);
+	strSelection = strSelection.replaceAll("\n", ' ');
+    strSelection = strSelection.replaceAll('  ', ' ');
+    strSelection = strSelection.replaceAll('" ', '"');
+    strSelection = strSelection.replaceAll(' "', '"');
+	oSrc.value = oSrc.value.substring(0, iStart) + strSelection.trim() + oSrc.value.substring(iEnd);
+	oSrc.setSelectionRange(iStart, iStart);
+	onSrcChanged();
+    oSrc.focus();
+}
+
+function scrollSelectedValue(iScroll)
+{
+	var oSrc = document.getElementById('src');
+	if (typeof oSrc.selectionStart !== 'undefined') {
+		var iStart = oSrc.selectionStart;
+		var iEnd = oSrc.selectionEnd;
+		if (iStart !== iEnd) {
+			var strSelection = oSrc.value.substring(iStart, iEnd);
+			if (!isNaN(strSelection)) {
+				iValue = parseInt(strSelection) + iScroll;
+				oSrc.value = oSrc.value.substring(0, iStart) + iValue.toString() + oSrc.value.substring(iEnd);
+				oSrc.setSelectionRange(iStart, iStart + iValue.toString().length);
+				onSrcChanged();
+			}
+		}
+	}
+}
+</script>
+<style type="text/css">
+label
+{
+    display: inline-block;
+    width: 100px;
+}
+</style>
+</head>
+<body onload="onLoad()">
+<div style="width: 49%; float: left;">
+    <textarea id="src" cols="100" rows="20"></textarea>
+    <br>
+    <input type="button" data-element="Line" value="Line">
+    <input type="button" data-element="Rect" value="Rect">
+	<input type="button" data-element="Ellipse" value="Ellipse">
+    <input type="button" data-element="Path" value="Path">
+    <br>
+    <input type="button" value="Wrap Path" onclick="wrapPath()">
+    <input type="button" value="Unwrap Path" onclick="unwrapPath()">
+    <br><br>
+    <label>Position: </label><span id="pos"></span>
+    <br><br>
+    <h2>MDN Web Docs: </h2>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#line" target="_blank">Line</a><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#rectangle" target="_blank">Rect</a><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes#ellipse" target="_blank">Ellipse</a><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths" target="_blank">Path</a><br>
+	<br>
+</div>
+<div style="width: 49%; float: right;">
+    <div id="svg">
+    </div>
+</div>
+</body>
