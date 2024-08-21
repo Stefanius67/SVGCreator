@@ -21,7 +21,7 @@ use SKien\SVGCreator\Helper\Style;
  * @see \SKien\SVGCreator\SVGAttributesTrait
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  */
 class SVGElement
 {
@@ -174,6 +174,29 @@ class SVGElement
     }
 
     /**
+     * Inserts a child element by using (duplicating) the referenced element.
+     * The referenced element can be either a symbol that is defined within the document
+     * or any other shape that can be referenced by its id.
+     * Any property of the referenced element can be changed.
+     * @param string|SVGElement $id
+     * @param float|int $x
+     * @param float|int $y
+     * @param string $strStyleOrClass
+     * @return SVGElement
+     */
+    public function use(string|SVGElement $id, float|int $x, float|int $y, string $strStyleOrClass = null) : SVGElement
+    {
+        if (!is_string($id)) {
+            $id = $id->getID();
+        }
+        $oUse = new SVGElement('use', '', $strStyleOrClass);
+        $oUse->setAttribute('href', "#$id");
+        $oUse->setPos($x, $y);
+
+        return $this->add($oUse);
+    }
+
+    /**
      * Adds a comment to the image.
      * When building the DOM, comments are only added, if the `bPrettyOutput` for
      * the image is set to true.
@@ -247,5 +270,20 @@ class SVGElement
             }
         }
         return false;
+    }
+
+    /**
+     * Conversion from a given point in polar coordinates into the cartesian coordinate system.
+     * @param float $r
+     * @param float $degrees
+     * @return array<float>
+     */
+    public function fromPolar(float $r, float $degrees) : array
+    {
+        $rad = deg2rad($degrees);
+        return [
+            round($r * cos($rad), 3),
+            round($r * sin($rad), 3)
+        ];
     }
 }
