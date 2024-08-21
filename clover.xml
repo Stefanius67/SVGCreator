@@ -1,6 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1715685148">
-  <project timestamp="1715685148">
+<coverage generated="1724256089">
+  <project timestamp="1724256089">
+    <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/ExtShapes/SVGBlockArrow.php">
+      <class name="SKien\SVGCreator\ExtShapes\SVGBlockArrow" namespace="global">
+        <metrics complexity="59" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="205" coveredstatements="205" elements="215" coveredelements="215"/>
+      </class>
+      <line num="55" type="method" name="__construct" visibility="public" complexity="9" crap="9" count="32"/>
+      <line num="57" type="stmt" count="32"/>
+      <line num="58" type="stmt" count="32"/>
+      <line num="59" type="stmt" count="32"/>
+      <line num="60" type="stmt" count="32"/>
+      <line num="61" type="stmt" count="32"/>
+      <line num="64" type="stmt" count="32"/>
+      <line num="66" type="stmt" count="32"/>
+      <line num="67" type="stmt" count="32"/>
+      <line num="69" type="stmt" count="4"/>
+      <line num="70" type="stmt" count="4"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="73" type="stmt" count="1"/>
+      <line num="75" type="stmt" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="79" type="stmt" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="82" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="8"/>
+      <line num="85" type="stmt" count="8"/>
+      <line num="87" type="stmt" count="8"/>
+      <line num="88" type="stmt" count="8"/>
+      <line num="90" type="stmt" count="8"/>
+      <line num="91" type="stmt" count="8"/>
+      <line num="95" type="method" name="buildSingle" visibility="protected" complexity="2" crap="2" count="4"/>
+      <line num="97" type="stmt" count="4"/>
+      <line num="101" type="stmt" count="4"/>
+      <line num="102" type="stmt" count="4"/>
+      <line num="103" type="stmt" count="4"/>
+      <line num="104" type="stmt" count="4"/>
+      <line num="105" type="stmt" count="4"/>
+      <line num="106" type="stmt" count="4"/>
+      <line num="107" type="stmt" count="4"/>
+      <line num="108" type="stmt" count="4"/>
+      <line num="109" type="stmt" count="4"/>
+      <line num="111" type="stmt" count="4"/>
+      <line num="115" type="method" name="buildDouble" visibility="protected" complexity="2" crap="2" count="1"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="119" type="stmt" count="1"/>
+      <line num="120" type="stmt" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <line num="122" type="stmt" count="1"/>
+      <line num="123" type="stmt" count="1"/>
+      <line num="124" type="stmt" count="1"/>
+      <line num="125" type="stmt" count="1"/>
+      <line num="126" type="stmt" count="1"/>
+      <line num="127" type="stmt" count="1"/>
+      <line num="128" type="stmt" count="1"/>
+      <line num="130" type="stmt" count="1"/>
+      <line num="134" type="method" name="adjust" visibility="protected" complexity="4" crap="4" count="5"/>
+      <line num="136" type="stmt" count="5"/>
+      <line num="138" type="stmt" count="5"/>
+      <line num="141" type="stmt" count="5"/>
+      <line num="157" type="stmt" count="5"/>
+      <line num="159" type="stmt" count="2"/>
+      <line num="161" type="stmt" count="5"/>
+      <line num="163" type="stmt" count="2"/>
+      <line num="165" type="stmt" count="5"/>
+      <line num="169" type="method" name="buildAngledVert" visibility="protected" complexity="4" crap="4" count="1"/>
+      <line num="171" type="stmt" count="1"/>
+      <line num="172" type="stmt" count="1"/>
+      <line num="173" type="stmt" count="1"/>
+      <line num="175" type="stmt" count="1"/>
+      <line num="176" type="stmt" count="1"/>
+      <line num="178" type="stmt" count="1"/>
+      <line num="179" type="stmt" count="1"/>
+      <line num="180" type="stmt" count="1"/>
+      <line num="181" type="stmt" count="1"/>
+      <line num="182" type="stmt" count="1"/>
+      <line num="183" type="stmt" count="1"/>
+      <line num="184" type="stmt" count="1"/>
+      <line num="185" type="stmt" count="1"/>
+      <line num="186" type="stmt" count="1"/>
+      <line num="187" type="stmt" count="1"/>
+      <line num="188" type="stmt" count="1"/>
+      <line num="190" type="stmt" count="1"/>
+      <line num="194" type="method" name="buildAngledHorz" visibility="protected" complexity="4" crap="4" count="1"/>
+      <line num="196" type="stmt" count="1"/>
+      <line num="197" type="stmt" count="1"/>
+      <line num="198" type="stmt" count="1"/>
+      <line num="200" type="stmt" count="1"/>
+      <line num="201" type="stmt" count="1"/>
+      <line num="203" type="stmt" count="1"/>
+      <line num="204" type="stmt" count="1"/>
+      <line num="205" type="stmt" count="1"/>
+      <line num="206" type="stmt" count="1"/>
+      <line num="207" type="stmt" count="1"/>
+      <line num="208" type="stmt" count="1"/>
+      <line num="209" type="stmt" count="1"/>
+      <line num="210" type="stmt" count="1"/>
+      <line num="211" type="stmt" count="1"/>
+      <line num="212" type="stmt" count="1"/>
+      <line num="213" type="stmt" count="1"/>
+      <line num="215" type="stmt" count="1"/>
+      <line num="219" type="method" name="buildAngledDouble" visibility="protected" complexity="4" crap="4" count="1"/>
+      <line num="221" type="stmt" count="1"/>
+      <line num="222" type="stmt" count="1"/>
+      <line num="223" type="stmt" count="1"/>
+      <line num="225" type="stmt" count="1"/>
+      <line num="226" type="stmt" count="1"/>
+      <line num="228" type="stmt" count="1"/>
+      <line num="229" type="stmt" count="1"/>
+      <line num="230" type="stmt" count="1"/>
+      <line num="231" type="stmt" count="1"/>
+      <line num="232" type="stmt" count="1"/>
+      <line num="233" type="stmt" count="1"/>
+      <line num="234" type="stmt" count="1"/>
+      <line num="235" type="stmt" count="1"/>
+      <line num="236" type="stmt" count="1"/>
+      <line num="237" type="stmt" count="1"/>
+      <line num="238" type="stmt" count="1"/>
+      <line num="239" type="stmt" count="1"/>
+      <line num="240" type="stmt" count="1"/>
+      <line num="242" type="stmt" count="1"/>
+      <line num="246" type="method" name="buildRoundedVert" visibility="protected" complexity="10" crap="10" count="8"/>
+      <line num="248" type="stmt" count="8"/>
+      <line num="249" type="stmt" count="8"/>
+      <line num="250" type="stmt" count="8"/>
+      <line num="252" type="stmt" count="8"/>
+      <line num="253" type="stmt" count="8"/>
+      <line num="255" type="stmt" count="8"/>
+      <line num="256" type="stmt" count="4"/>
+      <line num="257" type="stmt" count="4"/>
+      <line num="258" type="stmt" count="4"/>
+      <line num="259" type="stmt" count="4"/>
+      <line num="261" type="stmt" count="4"/>
+      <line num="262" type="stmt" count="4"/>
+      <line num="263" type="stmt" count="4"/>
+      <line num="264" type="stmt" count="4"/>
+      <line num="267" type="stmt" count="8"/>
+      <line num="268" type="stmt" count="8"/>
+      <line num="269" type="stmt" count="8"/>
+      <line num="270" type="stmt" count="4"/>
+      <line num="272" type="stmt" count="8"/>
+      <line num="273" type="stmt" count="8"/>
+      <line num="274" type="stmt" count="8"/>
+      <line num="275" type="stmt" count="8"/>
+      <line num="276" type="stmt" count="8"/>
+      <line num="277" type="stmt" count="8"/>
+      <line num="278" type="stmt" count="8"/>
+      <line num="279" type="stmt" count="4"/>
+      <line num="281" type="stmt" count="8"/>
+      <line num="282" type="stmt" count="8"/>
+      <line num="283" type="stmt" count="4"/>
+      <line num="285" type="stmt" count="8"/>
+      <line num="287" type="stmt" count="8"/>
+      <line num="291" type="method" name="buildRoundedHorz" visibility="protected" complexity="10" crap="10" count="8"/>
+      <line num="293" type="stmt" count="8"/>
+      <line num="294" type="stmt" count="8"/>
+      <line num="295" type="stmt" count="8"/>
+      <line num="297" type="stmt" count="8"/>
+      <line num="298" type="stmt" count="8"/>
+      <line num="300" type="stmt" count="8"/>
+      <line num="301" type="stmt" count="4"/>
+      <line num="302" type="stmt" count="4"/>
+      <line num="303" type="stmt" count="4"/>
+      <line num="304" type="stmt" count="4"/>
+      <line num="306" type="stmt" count="4"/>
+      <line num="307" type="stmt" count="4"/>
+      <line num="308" type="stmt" count="4"/>
+      <line num="309" type="stmt" count="4"/>
+      <line num="312" type="stmt" count="8"/>
+      <line num="313" type="stmt" count="8"/>
+      <line num="314" type="stmt" count="8"/>
+      <line num="315" type="stmt" count="4"/>
+      <line num="317" type="stmt" count="8"/>
+      <line num="318" type="stmt" count="8"/>
+      <line num="319" type="stmt" count="8"/>
+      <line num="320" type="stmt" count="8"/>
+      <line num="321" type="stmt" count="8"/>
+      <line num="322" type="stmt" count="8"/>
+      <line num="323" type="stmt" count="8"/>
+      <line num="324" type="stmt" count="4"/>
+      <line num="326" type="stmt" count="8"/>
+      <line num="327" type="stmt" count="8"/>
+      <line num="328" type="stmt" count="4"/>
+      <line num="330" type="stmt" count="8"/>
+      <line num="332" type="stmt" count="8"/>
+      <line num="336" type="method" name="buildRoundedDouble" visibility="protected" complexity="10" crap="10" count="8"/>
+      <line num="338" type="stmt" count="8"/>
+      <line num="339" type="stmt" count="8"/>
+      <line num="340" type="stmt" count="8"/>
+      <line num="342" type="stmt" count="8"/>
+      <line num="343" type="stmt" count="8"/>
+      <line num="345" type="stmt" count="8"/>
+      <line num="346" type="stmt" count="4"/>
+      <line num="347" type="stmt" count="4"/>
+      <line num="348" type="stmt" count="4"/>
+      <line num="349" type="stmt" count="4"/>
+      <line num="351" type="stmt" count="4"/>
+      <line num="352" type="stmt" count="4"/>
+      <line num="353" type="stmt" count="4"/>
+      <line num="354" type="stmt" count="4"/>
+      <line num="357" type="stmt" count="8"/>
+      <line num="358" type="stmt" count="8"/>
+      <line num="359" type="stmt" count="8"/>
+      <line num="360" type="stmt" count="8"/>
+      <line num="361" type="stmt" count="4"/>
+      <line num="363" type="stmt" count="8"/>
+      <line num="364" type="stmt" count="8"/>
+      <line num="365" type="stmt" count="8"/>
+      <line num="366" type="stmt" count="8"/>
+      <line num="367" type="stmt" count="8"/>
+      <line num="368" type="stmt" count="8"/>
+      <line num="369" type="stmt" count="8"/>
+      <line num="370" type="stmt" count="4"/>
+      <line num="372" type="stmt" count="8"/>
+      <line num="373" type="stmt" count="8"/>
+      <line num="374" type="stmt" count="4"/>
+      <line num="376" type="stmt" count="8"/>
+      <line num="377" type="stmt" count="8"/>
+      <line num="378" type="stmt" count="8"/>
+      <line num="380" type="stmt" count="8"/>
+      <metrics loc="383" ncloc="333" classes="1" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="205" coveredstatements="205" elements="215" coveredelements="215"/>
+    </file>
+    <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/ExtShapes/SVGBlockArrowDef.php">
+      <class name="SKien\SVGCreator\ExtShapes\SVGBlockArrowDef" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </class>
+      <line num="31" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="32"/>
+      <line num="33" type="stmt" count="32"/>
+      <line num="35" type="stmt" count="32"/>
+      <line num="36" type="stmt" count="32"/>
+      <line num="37" type="stmt" count="32"/>
+      <metrics loc="39" ncloc="23" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+    </file>
+    <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/ExtShapes/SVGStar.php">
+      <class name="SKien\SVGCreator\ExtShapes\SVGStar" namespace="global">
+        <metrics complexity="13" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="69" elements="73" coveredelements="73"/>
+      </class>
+      <line num="72" type="method" name="__construct" visibility="public" complexity="4" crap="4" count="4"/>
+      <line num="74" type="stmt" count="4"/>
+      <line num="76" type="stmt" count="4"/>
+      <line num="77" type="stmt" count="4"/>
+      <line num="78" type="stmt" count="4"/>
+      <line num="79" type="stmt" count="4"/>
+      <line num="80" type="stmt" count="4"/>
+      <line num="82" type="stmt" count="4"/>
+      <line num="83" type="stmt" count="4"/>
+      <line num="85" type="stmt" count="4"/>
+      <line num="86" type="stmt" count="4"/>
+      <line num="87" type="stmt" count="4"/>
+      <line num="88" type="stmt" count="4"/>
+      <line num="89" type="stmt" count="4"/>
+      <line num="90" type="stmt" count="4"/>
+      <line num="91" type="stmt" count="4"/>
+      <line num="92" type="stmt" count="4"/>
+      <line num="93" type="stmt" count="4"/>
+      <line num="94" type="stmt" count="4"/>
+      <line num="95" type="stmt" count="4"/>
+      <line num="96" type="stmt" count="4"/>
+      <line num="97" type="stmt" count="4"/>
+      <line num="98" type="stmt" count="4"/>
+      <line num="100" type="stmt" count="4"/>
+      <line num="102" type="stmt" count="4"/>
+      <line num="114" type="method" name="drawCircumRadiuses" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="116" type="stmt" count="1"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="120" type="stmt" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <line num="122" type="stmt" count="1"/>
+      <line num="123" type="stmt" count="1"/>
+      <line num="124" type="stmt" count="1"/>
+      <line num="125" type="stmt" count="1"/>
+      <line num="126" type="stmt" count="1"/>
+      <line num="127" type="stmt" count="1"/>
+      <line num="129" type="stmt" count="1"/>
+      <line num="130" type="stmt" count="1"/>
+      <line num="133" type="stmt" count="1"/>
+      <line num="143" type="method" name="drawIncircleRadiuses" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="145" type="stmt" count="1"/>
+      <line num="146" type="stmt" count="1"/>
+      <line num="147" type="stmt" count="1"/>
+      <line num="149" type="stmt" count="1"/>
+      <line num="150" type="stmt" count="1"/>
+      <line num="151" type="stmt" count="1"/>
+      <line num="152" type="stmt" count="1"/>
+      <line num="153" type="stmt" count="1"/>
+      <line num="154" type="stmt" count="1"/>
+      <line num="155" type="stmt" count="1"/>
+      <line num="156" type="stmt" count="1"/>
+      <line num="158" type="stmt" count="1"/>
+      <line num="159" type="stmt" count="1"/>
+      <line num="162" type="stmt" count="1"/>
+      <line num="172" type="method" name="draw3D" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="174" type="stmt" count="1"/>
+      <line num="175" type="stmt" count="1"/>
+      <line num="176" type="stmt" count="1"/>
+      <line num="178" type="stmt" count="1"/>
+      <line num="179" type="stmt" count="1"/>
+      <line num="180" type="stmt" count="1"/>
+      <line num="181" type="stmt" count="1"/>
+      <line num="182" type="stmt" count="1"/>
+      <line num="183" type="stmt" count="1"/>
+      <line num="184" type="stmt" count="1"/>
+      <line num="185" type="stmt" count="1"/>
+      <line num="186" type="stmt" count="1"/>
+      <line num="187" type="stmt" count="1"/>
+      <line num="188" type="stmt" count="1"/>
+      <line num="190" type="stmt" count="1"/>
+      <line num="191" type="stmt" count="1"/>
+      <line num="194" type="stmt" count="1"/>
+      <metrics loc="196" ncloc="121" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="69" elements="73" coveredelements="73"/>
+    </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/Filter/Effects/SVGBlendEffect.php">
       <class name="SKien\SVGCreator\Filter\Effects\SVGBlendEffect" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
@@ -525,26 +836,24 @@
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/Marker/SVGMarker.php">
       <class name="SKien\SVGCreator\Marker\SVGMarker" namespace="global">
-        <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="13" coveredelements="13"/>
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
       </class>
-      <line num="46" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="48" type="stmt" count="4"/>
-      <line num="50" type="stmt" count="4"/>
-      <line num="51" type="stmt" count="4"/>
-      <line num="66" type="method" name="setViewbox" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="68" type="stmt" count="1"/>
-      <line num="75" type="method" name="setMarkerUnits" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="77" type="stmt" count="1"/>
-      <line num="88" type="method" name="setOrientation" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="90" type="stmt" count="1"/>
-      <line num="99" type="method" name="setRefPoint" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="101" type="stmt" count="1"/>
-      <line num="102" type="stmt" count="1"/>
-      <metrics loc="104" ncloc="46" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="13" coveredelements="13"/>
+      <line num="46" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="48" type="stmt" count="3"/>
+      <line num="50" type="stmt" count="3"/>
+      <line num="51" type="stmt" count="3"/>
+      <line num="58" type="method" name="setMarkerUnits" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="71" type="method" name="setOrientation" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="73" type="stmt" count="1"/>
+      <line num="82" type="method" name="setRefPoint" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="1"/>
+      <metrics loc="87" ncloc="41" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVG.php">
       <class name="SKien\SVGCreator\SVG" namespace="global">
-        <metrics complexity="19" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="45" elements="60" coveredelements="60"/>
+        <metrics complexity="19" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="46" elements="61" coveredelements="61"/>
       </class>
       <line num="67" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="11"/>
       <line num="69" type="stmt" count="11"/>
@@ -560,139 +869,144 @@
       <line num="111" type="method" name="setSize" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="113" type="stmt" count="1"/>
       <line num="114" type="stmt" count="1"/>
-      <line num="128" type="method" name="setViewbox" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="130" type="stmt" count="1"/>
-      <line num="140" type="method" name="addDef" visibility="public" complexity="3" crap="3" count="3"/>
-      <line num="142" type="stmt" count="3"/>
-      <line num="143" type="stmt" count="3"/>
-      <line num="145" type="stmt" count="3"/>
-      <line num="161" type="method" name="addFilter" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="163" type="stmt" count="1"/>
-      <line num="164" type="stmt" count="1"/>
-      <line num="180" type="method" name="addGradient" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="182" type="stmt" count="1"/>
-      <line num="183" type="stmt" count="1"/>
-      <line num="191" type="method" name="addMarker" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="193" type="stmt" count="1"/>
-      <line num="194" type="stmt" count="1"/>
-      <line num="206" type="method" name="addStyleDef" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="208" type="stmt" count="1"/>
-      <line num="209" type="stmt" count="1"/>
-      <line num="210" type="stmt" count="1"/>
-      <line num="217" type="method" name="buildDOM" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="124" type="method" name="addDef" visibility="public" complexity="3" crap="3" count="4"/>
+      <line num="126" type="stmt" count="4"/>
+      <line num="127" type="stmt" count="4"/>
+      <line num="129" type="stmt" count="4"/>
+      <line num="145" type="method" name="addFilter" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="147" type="stmt" count="1"/>
+      <line num="148" type="stmt" count="1"/>
+      <line num="164" type="method" name="addGradient" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="166" type="stmt" count="1"/>
+      <line num="167" type="stmt" count="1"/>
+      <line num="175" type="method" name="addMarker" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="177" type="stmt" count="1"/>
+      <line num="178" type="stmt" count="1"/>
+      <line num="186" type="method" name="addSymbol" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="188" type="stmt" count="1"/>
+      <line num="189" type="stmt" count="1"/>
+      <line num="201" type="method" name="addStyleDef" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="203" type="stmt" count="1"/>
+      <line num="204" type="stmt" count="1"/>
+      <line num="205" type="stmt" count="1"/>
+      <line num="212" type="method" name="buildDOM" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="214" type="stmt" count="4"/>
+      <line num="216" type="stmt" count="4"/>
+      <line num="217" type="stmt" count="4"/>
       <line num="219" type="stmt" count="4"/>
       <line num="221" type="stmt" count="4"/>
-      <line num="222" type="stmt" count="4"/>
-      <line num="224" type="stmt" count="4"/>
-      <line num="226" type="stmt" count="4"/>
-      <line num="234" type="method" name="buildID" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="236" type="stmt" count="4"/>
-      <line num="237" type="stmt" count="4"/>
-      <line num="238" type="stmt" count="4"/>
-      <line num="240" type="stmt" count="4"/>
-      <line num="250" type="method" name="output" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="229" type="method" name="buildID" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="231" type="stmt" count="5"/>
+      <line num="232" type="stmt" count="5"/>
+      <line num="233" type="stmt" count="5"/>
+      <line num="235" type="stmt" count="5"/>
+      <line num="245" type="method" name="output" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="247" type="stmt" count="2"/>
+      <line num="249" type="stmt" count="2"/>
+      <line num="251" type="stmt" count="2"/>
       <line num="252" type="stmt" count="2"/>
-      <line num="254" type="stmt" count="2"/>
+      <line num="253" type="stmt" count="2"/>
+      <line num="254" type="stmt" count="1"/>
       <line num="256" type="stmt" count="2"/>
-      <line num="257" type="stmt" count="2"/>
-      <line num="258" type="stmt" count="2"/>
-      <line num="259" type="stmt" count="1"/>
-      <line num="261" type="stmt" count="2"/>
-      <line num="268" type="method" name="getSVG" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="263" type="method" name="getSVG" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="265" type="stmt" count="1"/>
+      <line num="267" type="stmt" count="1"/>
+      <line num="268" type="stmt" count="1"/>
       <line num="270" type="stmt" count="1"/>
-      <line num="272" type="stmt" count="1"/>
-      <line num="273" type="stmt" count="1"/>
-      <line num="275" type="stmt" count="1"/>
-      <line num="282" type="method" name="save" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="284" type="stmt" count="1"/>
-      <line num="286" type="stmt" count="1"/>
-      <metrics loc="288" ncloc="152" classes="1" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="45" elements="60" coveredelements="60"/>
+      <line num="277" type="method" name="save" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="279" type="stmt" count="1"/>
+      <line num="281" type="stmt" count="1"/>
+      <metrics loc="283" ncloc="153" classes="1" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="46" elements="61" coveredelements="61"/>
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVGAttributesTrait.php">
       <class name="SKien\SVGCreator\SVGAttributesTrait" namespace="global">
-        <metrics complexity="37" methods="27" coveredmethods="27" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="80" coveredelements="80"/>
+        <metrics complexity="42" methods="28" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="56" elements="84" coveredelements="84"/>
       </class>
-      <line num="39" type="method" name="setAttribute" visibility="public" complexity="3" crap="3" count="30"/>
-      <line num="41" type="stmt" count="30"/>
-      <line num="42" type="stmt" count="30"/>
+      <line num="39" type="method" name="setAttribute" visibility="public" complexity="3" crap="3" count="36"/>
+      <line num="41" type="stmt" count="36"/>
+      <line num="42" type="stmt" count="36"/>
       <line num="43" type="stmt" count="5"/>
       <line num="44" type="stmt" count="4"/>
       <line num="52" type="method" name="hasAttribute" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="54" type="stmt" count="9"/>
-      <line num="63" type="method" name="getAttribute" visibility="public" complexity="1" crap="1" count="24"/>
-      <line num="65" type="stmt" count="24"/>
-      <line num="72" type="method" name="getID" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="74" type="stmt" count="4"/>
-      <line num="81" type="method" name="setID" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="83" type="stmt" count="4"/>
-      <line num="91" type="method" name="setPos" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="93" type="stmt" count="1"/>
-      <line num="94" type="stmt" count="1"/>
+      <line num="63" type="method" name="getAttribute" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="65" type="stmt" count="27"/>
+      <line num="72" type="method" name="getID" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="74" type="stmt" count="5"/>
+      <line num="81" type="method" name="setID" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="83" type="stmt" count="5"/>
+      <line num="91" type="method" name="setPos" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="93" type="stmt" count="3"/>
+      <line num="94" type="stmt" count="3"/>
       <line num="102" type="method" name="setSize" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="104" type="stmt" count="1"/>
       <line num="105" type="stmt" count="1"/>
-      <line num="112" type="method" name="setFillColor" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="114" type="stmt" count="1"/>
-      <line num="121" type="method" name="setStrokeColor" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="123" type="stmt" count="1"/>
-      <line num="130" type="method" name="setStrokeWidth" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="132" type="stmt" count="1"/>
-      <line num="144" type="method" name="setDashArray" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="146" type="stmt" count="1"/>
-      <line num="147" type="stmt" count="1"/>
-      <line num="149" type="stmt" count="1"/>
-      <line num="160" type="method" name="setClass" visibility="public" complexity="1" crap="1" count="30"/>
-      <line num="162" type="stmt" count="30"/>
-      <line num="184" type="method" name="setPreserveAspectRatio" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="186" type="stmt" count="1"/>
-      <line num="195" type="method" name="setLanguage" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="197" type="stmt" count="1"/>
-      <line num="207" type="method" name="translate" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="209" type="stmt" count="2"/>
-      <line num="210" type="stmt" count="2"/>
-      <line num="231" type="method" name="scale" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="233" type="stmt" count="1"/>
-      <line num="234" type="stmt" count="1"/>
-      <line num="235" type="stmt" count="1"/>
-      <line num="248" type="method" name="flipHorz" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="250" type="stmt" count="1"/>
+      <line num="119" type="method" name="setViewbox" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <line num="128" type="method" name="setFillColor" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="130" type="stmt" count="1"/>
+      <line num="137" type="method" name="setStrokeColor" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="139" type="stmt" count="1"/>
+      <line num="146" type="method" name="setStrokeWidth" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="148" type="stmt" count="1"/>
+      <line num="160" type="method" name="setDashArray" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="162" type="stmt" count="1"/>
+      <line num="163" type="stmt" count="1"/>
+      <line num="165" type="stmt" count="1"/>
+      <line num="176" type="method" name="setClass" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="178" type="stmt" count="36"/>
+      <line num="200" type="method" name="setPreserveAspectRatio" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="202" type="stmt" count="1"/>
+      <line num="211" type="method" name="setLanguage" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="213" type="stmt" count="1"/>
+      <line num="223" type="method" name="translate" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="225" type="stmt" count="2"/>
+      <line num="226" type="stmt" count="2"/>
+      <line num="227" type="stmt" count="2"/>
+      <line num="249" type="method" name="scale" visibility="public" complexity="3" crap="3" count="1"/>
       <line num="251" type="stmt" count="1"/>
-      <line num="264" type="method" name="flipVert" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="266" type="stmt" count="1"/>
-      <line num="267" type="stmt" count="1"/>
-      <line num="280" type="method" name="rotate" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="282" type="stmt" count="1"/>
-      <line num="283" type="stmt" count="1"/>
-      <line num="290" type="method" name="skewX" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="292" type="stmt" count="1"/>
-      <line num="299" type="method" name="skewY" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="301" type="stmt" count="1"/>
-      <line num="317" type="method" name="matrix" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="319" type="stmt" count="1"/>
-      <line num="320" type="stmt" count="1"/>
+      <line num="252" type="stmt" count="1"/>
+      <line num="253" type="stmt" count="1"/>
+      <line num="255" type="stmt" count="1"/>
+      <line num="268" type="method" name="flipHorz" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="270" type="stmt" count="1"/>
+      <line num="271" type="stmt" count="1"/>
+      <line num="284" type="method" name="flipVert" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="286" type="stmt" count="1"/>
+      <line num="287" type="stmt" count="1"/>
+      <line num="300" type="method" name="rotate" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="302" type="stmt" count="1"/>
+      <line num="303" type="stmt" count="1"/>
+      <line num="310" type="method" name="skewX" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="312" type="stmt" count="1"/>
+      <line num="319" type="method" name="skewY" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="321" type="stmt" count="1"/>
-      <line num="336" type="method" name="setTransformOrigin" visibility="public" complexity="3" crap="3" count="5"/>
-      <line num="338" type="stmt" count="5"/>
-      <line num="339" type="stmt" count="2"/>
-      <line num="340" type="stmt" count="2"/>
-      <line num="341" type="stmt" count="2"/>
-      <line num="351" type="method" name="setFilter" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="353" type="stmt" count="1"/>
-      <line num="354" type="stmt" count="1"/>
-      <line num="356" type="stmt" count="1"/>
-      <line num="363" type="method" name="setGradient" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="365" type="stmt" count="1"/>
-      <line num="366" type="stmt" count="1"/>
-      <line num="368" type="stmt" count="1"/>
-      <line num="378" type="method" name="setClipPath" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="380" type="stmt" count="1"/>
-      <line num="381" type="stmt" count="1"/>
-      <line num="383" type="stmt" count="1"/>
-      <line num="392" type="method" name="addTransformation" visibility="public" complexity="2" crap="2" count="8"/>
-      <line num="394" type="stmt" count="8"/>
-      <line num="395" type="stmt" count="8"/>
-      <line num="397" type="stmt" count="1"/>
-      <metrics loc="400" ncloc="185" classes="1" methods="27" coveredmethods="27" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="80" coveredelements="80"/>
+      <line num="337" type="method" name="matrix" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="339" type="stmt" count="1"/>
+      <line num="340" type="stmt" count="1"/>
+      <line num="341" type="stmt" count="1"/>
+      <line num="356" type="method" name="setTransformOrigin" visibility="public" complexity="3" crap="3" count="5"/>
+      <line num="358" type="stmt" count="5"/>
+      <line num="359" type="stmt" count="2"/>
+      <line num="360" type="stmt" count="2"/>
+      <line num="361" type="stmt" count="2"/>
+      <line num="371" type="method" name="setFilter" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="373" type="stmt" count="1"/>
+      <line num="374" type="stmt" count="1"/>
+      <line num="376" type="stmt" count="1"/>
+      <line num="383" type="method" name="setGradient" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="385" type="stmt" count="1"/>
+      <line num="386" type="stmt" count="1"/>
+      <line num="388" type="stmt" count="1"/>
+      <line num="398" type="method" name="setClipPath" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="400" type="stmt" count="1"/>
+      <line num="401" type="stmt" count="1"/>
+      <line num="403" type="stmt" count="1"/>
+      <line num="412" type="method" name="addTransformation" visibility="public" complexity="2" crap="2" count="8"/>
+      <line num="414" type="stmt" count="8"/>
+      <line num="415" type="stmt" count="8"/>
+      <line num="417" type="stmt" count="1"/>
+      <metrics loc="420" ncloc="194" classes="1" methods="28" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="56" elements="84" coveredelements="84"/>
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVGCData.php">
       <class name="SKien\SVGCreator\SVGCData" namespace="global">
@@ -732,15 +1046,15 @@
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVGElement.php">
       <class name="SKien\SVGCreator\SVGElement" namespace="global">
-        <metrics complexity="27" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="44" elements="59" coveredelements="59"/>
+        <metrics complexity="30" methods="17" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="70" coveredelements="70"/>
       </class>
-      <line num="51" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="30"/>
-      <line num="53" type="stmt" count="30"/>
-      <line num="54" type="stmt" count="30"/>
-      <line num="56" type="stmt" count="30"/>
-      <line num="57" type="stmt" count="30"/>
-      <line num="58" type="stmt" count="30"/>
-      <line num="59" type="stmt" count="30"/>
+      <line num="51" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="36"/>
+      <line num="53" type="stmt" count="36"/>
+      <line num="54" type="stmt" count="36"/>
+      <line num="56" type="stmt" count="36"/>
+      <line num="57" type="stmt" count="36"/>
+      <line num="58" type="stmt" count="36"/>
+      <line num="59" type="stmt" count="36"/>
       <line num="67" type="method" name="getName" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="69" type="stmt" count="2"/>
       <line num="76" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="3"/>
@@ -751,10 +1065,10 @@
       <line num="97" type="stmt" count="1"/>
       <line num="98" type="stmt" count="1"/>
       <line num="99" type="stmt" count="1"/>
-      <line num="109" type="method" name="setStyleOrClass" visibility="public" complexity="2" crap="2" count="30"/>
-      <line num="111" type="stmt" count="30"/>
+      <line num="109" type="method" name="setStyleOrClass" visibility="public" complexity="2" crap="2" count="36"/>
+      <line num="111" type="stmt" count="36"/>
       <line num="112" type="stmt" count="1"/>
-      <line num="114" type="stmt" count="30"/>
+      <line num="114" type="stmt" count="36"/>
       <line num="129" type="method" name="setStyle" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="131" type="stmt" count="2"/>
       <line num="140" type="method" name="addStyle" visibility="public" complexity="1" crap="1" count="1"/>
@@ -763,37 +1077,48 @@
       <line num="154" type="stmt" count="3"/>
       <line num="155" type="stmt" count="3"/>
       <line num="157" type="stmt" count="3"/>
-      <line num="167" type="method" name="add" visibility="public" complexity="2" crap="2" count="4"/>
-      <line num="169" type="stmt" count="4"/>
-      <line num="170" type="stmt" count="4"/>
+      <line num="167" type="method" name="add" visibility="public" complexity="2" crap="2" count="6"/>
+      <line num="169" type="stmt" count="6"/>
+      <line num="170" type="stmt" count="6"/>
       <line num="171" type="stmt" count="1"/>
-      <line num="173" type="stmt" count="4"/>
-      <line num="182" type="method" name="addComment" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="184" type="stmt" count="1"/>
-      <line num="193" type="method" name="setTitle" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="196" type="stmt" count="1"/>
-      <line num="197" type="stmt" count="1"/>
-      <line num="199" type="stmt" count="1"/>
-      <line num="208" type="method" name="appendToDOM" visibility="public" complexity="4" crap="4" count="2"/>
-      <line num="210" type="stmt" count="2"/>
-      <line num="211" type="stmt" count="2"/>
-      <line num="212" type="stmt" count="2"/>
-      <line num="213" type="stmt" count="2"/>
-      <line num="214" type="stmt" count="2"/>
-      <line num="216" type="stmt" count="1"/>
-      <line num="219" type="stmt" count="2"/>
-      <line num="227" type="method" name="createDOMNode" visibility="protected" complexity="2" crap="2" count="2"/>
-      <line num="229" type="stmt" count="2"/>
-      <line num="230" type="stmt" count="2"/>
-      <line num="231" type="stmt" count="2"/>
-      <line num="232" type="stmt" count="2"/>
+      <line num="173" type="stmt" count="6"/>
+      <line num="187" type="method" name="use" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="189" type="stmt" count="2"/>
+      <line num="190" type="stmt" count="1"/>
+      <line num="192" type="stmt" count="2"/>
+      <line num="193" type="stmt" count="2"/>
+      <line num="194" type="stmt" count="2"/>
+      <line num="196" type="stmt" count="2"/>
+      <line num="205" type="method" name="addComment" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="207" type="stmt" count="1"/>
+      <line num="216" type="method" name="setTitle" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="219" type="stmt" count="1"/>
+      <line num="220" type="stmt" count="1"/>
+      <line num="222" type="stmt" count="1"/>
+      <line num="231" type="method" name="appendToDOM" visibility="public" complexity="4" crap="4" count="2"/>
+      <line num="233" type="stmt" count="2"/>
       <line num="234" type="stmt" count="2"/>
-      <line num="242" type="method" name="getChildByName" visibility="public" complexity="3" crap="3" count="1"/>
-      <line num="244" type="stmt" count="1"/>
-      <line num="245" type="stmt" count="1"/>
-      <line num="246" type="stmt" count="1"/>
-      <line num="249" type="stmt" count="1"/>
-      <metrics loc="251" ncloc="137" classes="1" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="44" elements="59" coveredelements="59"/>
+      <line num="235" type="stmt" count="2"/>
+      <line num="236" type="stmt" count="2"/>
+      <line num="237" type="stmt" count="2"/>
+      <line num="239" type="stmt" count="1"/>
+      <line num="242" type="stmt" count="2"/>
+      <line num="250" type="method" name="createDOMNode" visibility="protected" complexity="2" crap="2" count="2"/>
+      <line num="252" type="stmt" count="2"/>
+      <line num="253" type="stmt" count="2"/>
+      <line num="254" type="stmt" count="2"/>
+      <line num="255" type="stmt" count="2"/>
+      <line num="257" type="stmt" count="2"/>
+      <line num="265" type="method" name="getChildByName" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="267" type="stmt" count="1"/>
+      <line num="268" type="stmt" count="1"/>
+      <line num="269" type="stmt" count="1"/>
+      <line num="272" type="stmt" count="1"/>
+      <line num="281" type="method" name="fromPolar" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="283" type="stmt" count="3"/>
+      <line num="285" type="stmt" count="3"/>
+      <line num="286" type="stmt" count="3"/>
+      <metrics loc="289" ncloc="158" classes="1" methods="17" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="70" coveredelements="70"/>
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVGGroup.php">
       <class name="SKien\SVGCreator\SVGGroup" namespace="global">
@@ -815,6 +1140,20 @@
       <line num="42" type="stmt" count="1"/>
       <line num="43" type="stmt" count="1"/>
       <metrics loc="45" ncloc="19" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/SVGSymbol.php">
+      <class name="SKien\SVGCreator\SVGSymbol" namespace="global">
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
+      </class>
+      <line num="27" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="29" type="stmt" count="2"/>
+      <line num="31" type="stmt" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="41" type="method" name="setRefPoint" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
+      <metrics loc="47" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
     </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/Shapes/SVGCircle.php">
       <class name="SKien\SVGCreator\Shapes\SVGCircle" namespace="global">
@@ -1007,6 +1346,144 @@
       <line num="94" type="stmt" count="2"/>
       <metrics loc="96" ncloc="56" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="23" coveredelements="23"/>
     </file>
+    <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/Text/SVGFont.php">
+      <class name="SKien\SVGCreator\Text\SVGFont" namespace="global">
+        <metrics complexity="43" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="121" coveredstatements="121" elements="132" coveredelements="132"/>
+      </class>
+      <line num="68" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="18"/>
+      <line num="70" type="stmt" count="18"/>
+      <line num="71" type="stmt" count="18"/>
+      <line num="79" type="method" name="getUnitsPerEm" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="88" type="method" name="getAscent" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="90" type="stmt" count="1"/>
+      <line num="97" type="method" name="getDescent" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="99" type="stmt" count="1"/>
+      <line num="106" type="method" name="getCapHeight" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="108" type="stmt" count="1"/>
+      <line num="115" type="method" name="getXHeight" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="126" type="method" name="load" visibility="public" complexity="8" crap="8" count="18"/>
+      <line num="128" type="stmt" count="18"/>
+      <line num="129" type="stmt" count="18"/>
+      <line num="130" type="stmt" count="18"/>
+      <line num="132" type="stmt" count="18"/>
+      <line num="133" type="stmt" count="18"/>
+      <line num="135" type="stmt" count="18"/>
+      <line num="136" type="stmt" count="18"/>
+      <line num="137" type="stmt" count="18"/>
+      <line num="138" type="stmt" count="18"/>
+      <line num="139" type="stmt" count="18"/>
+      <line num="140" type="stmt" count="18"/>
+      <line num="141" type="stmt" count="18"/>
+      <line num="142" type="stmt" count="18"/>
+      <line num="143" type="stmt" count="18"/>
+      <line num="144" type="stmt" count="18"/>
+      <line num="145" type="stmt" count="18"/>
+      <line num="146" type="stmt" count="18"/>
+      <line num="147" type="stmt" count="18"/>
+      <line num="148" type="stmt" count="18"/>
+      <line num="149" type="stmt" count="18"/>
+      <line num="150" type="stmt" count="18"/>
+      <line num="151" type="stmt" count="18"/>
+      <line num="152" type="stmt" count="18"/>
+      <line num="153" type="stmt" count="18"/>
+      <line num="154" type="stmt" count="18"/>
+      <line num="155" type="stmt" count="18"/>
+      <line num="156" type="stmt" count="18"/>
+      <line num="157" type="stmt" count="18"/>
+      <line num="158" type="stmt" count="18"/>
+      <line num="160" type="stmt" count="18"/>
+      <line num="161" type="stmt" count="18"/>
+      <line num="162" type="stmt" count="18"/>
+      <line num="163" type="stmt" count="18"/>
+      <line num="165" type="stmt" count="18"/>
+      <line num="182" type="method" name="text" visibility="public" complexity="7" crap="7" count="4"/>
+      <line num="184" type="stmt" count="4"/>
+      <line num="185" type="stmt" count="1"/>
+      <line num="189" type="stmt" count="3"/>
+      <line num="190" type="stmt" count="3"/>
+      <line num="191" type="stmt" count="3"/>
+      <line num="192" type="stmt" count="3"/>
+      <line num="193" type="stmt" count="3"/>
+      <line num="195" type="stmt" count="3"/>
+      <line num="196" type="stmt" count="3"/>
+      <line num="201" type="stmt" count="3"/>
+      <line num="202" type="stmt" count="3"/>
+      <line num="204" type="stmt" count="3"/>
+      <line num="205" type="stmt" count="3"/>
+      <line num="206" type="stmt" count="3"/>
+      <line num="207" type="stmt" count="3"/>
+      <line num="208" type="stmt" count="3"/>
+      <line num="209" type="stmt" count="3"/>
+      <line num="210" type="stmt" count="3"/>
+      <line num="211" type="stmt" count="1"/>
+      <line num="212" type="stmt" count="1"/>
+      <line num="213" type="stmt" count="2"/>
+      <line num="215" type="stmt" count="1"/>
+      <line num="216" type="stmt" count="1"/>
+      <line num="219" type="stmt" count="1"/>
+      <line num="221" type="stmt" count="3"/>
+      <line num="223" type="stmt" count="3"/>
+      <line num="224" type="stmt" count="3"/>
+      <line num="226" type="stmt" count="3"/>
+      <line num="235" type="method" name="textWidth" visibility="public" complexity="7" crap="7" count="4"/>
+      <line num="237" type="stmt" count="4"/>
+      <line num="238" type="stmt" count="1"/>
+      <line num="243" type="stmt" count="3"/>
+      <line num="244" type="stmt" count="3"/>
+      <line num="245" type="stmt" count="3"/>
+      <line num="246" type="stmt" count="3"/>
+      <line num="247" type="stmt" count="1"/>
+      <line num="248" type="stmt" count="2"/>
+      <line num="250" type="stmt" count="1"/>
+      <line num="253" type="stmt" count="1"/>
+      <line num="256" type="stmt" count="3"/>
+      <line num="257" type="stmt" count="3"/>
+      <line num="259" type="stmt" count="3"/>
+      <line num="270" type="method" name="symbol" visibility="public" complexity="7" crap="7" count="4"/>
+      <line num="272" type="stmt" count="4"/>
+      <line num="273" type="stmt" count="1"/>
+      <line num="277" type="stmt" count="3"/>
+      <line num="278" type="stmt" count="3"/>
+      <line num="279" type="stmt" count="3"/>
+      <line num="280" type="stmt" count="3"/>
+      <line num="281" type="stmt" count="3"/>
+      <line num="282" type="stmt" count="3"/>
+      <line num="283" type="stmt" count="3"/>
+      <line num="284" type="stmt" count="3"/>
+      <line num="285" type="stmt" count="1"/>
+      <line num="286" type="stmt" count="1"/>
+      <line num="287" type="stmt" count="2"/>
+      <line num="289" type="stmt" count="1"/>
+      <line num="290" type="stmt" count="1"/>
+      <line num="293" type="stmt" count="1"/>
+      <line num="295" type="stmt" count="3"/>
+      <line num="297" type="stmt" count="3"/>
+      <line num="298" type="stmt" count="2"/>
+      <line num="300" type="stmt" count="1"/>
+      <line num="302" type="stmt" count="3"/>
+      <line num="304" type="stmt" count="3"/>
+      <line num="312" type="method" name="utf8ToUnicode" visibility="private" complexity="7" crap="7" count="18"/>
+      <line num="314" type="stmt" count="18"/>
+      <line num="315" type="stmt" count="18"/>
+      <line num="316" type="stmt" count="18"/>
+      <line num="318" type="stmt" count="18"/>
+      <line num="319" type="stmt" count="18"/>
+      <line num="320" type="stmt" count="18"/>
+      <line num="321" type="stmt" count="18"/>
+      <line num="323" type="stmt" count="18"/>
+      <line num="324" type="stmt" count="18"/>
+      <line num="326" type="stmt" count="18"/>
+      <line num="327" type="stmt" count="18"/>
+      <line num="328" type="stmt" count="18"/>
+      <line num="329" type="stmt" count="18"/>
+      <line num="331" type="stmt" count="18"/>
+      <line num="333" type="stmt" count="18"/>
+      <line num="334" type="stmt" count="18"/>
+      <line num="338" type="stmt" count="18"/>
+      <metrics loc="340" ncloc="222" classes="1" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="121" coveredstatements="121" elements="132" coveredelements="132"/>
+    </file>
     <file name="/mnt/data/html/packages/SVGCreator/SKien/SVGCreator/Text/SVGText.php">
       <class name="SKien\SVGCreator\Text\SVGText" namespace="global">
         <metrics complexity="12" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="27" coveredelements="27"/>
@@ -1064,6 +1541,6 @@
       <line num="124" type="stmt" count="1"/>
       <metrics loc="126" ncloc="53" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="18" coveredelements="18"/>
     </file>
-    <metrics files="49" loc="3957" ncloc="2101" classes="49" methods="175" coveredmethods="175" conditionals="0" coveredconditionals="0" statements="594" coveredstatements="594" elements="769" coveredelements="769"/>
+    <metrics files="54" loc="4998" ncloc="2850" classes="54" methods="205" coveredmethods="205" conditionals="0" coveredconditionals="0" statements="1011" coveredstatements="1011" elements="1216" coveredelements="1216"/>
   </project>
 </coverage>

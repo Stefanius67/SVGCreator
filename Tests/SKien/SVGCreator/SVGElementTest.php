@@ -9,12 +9,13 @@ use SKien\SVGCreator\SVG;
 use SKien\SVGCreator\SVGElement;
 use SKien\SVGCreator\Filter\SVGSaturationFilter;
 use SKien\SVGCreator\Gradients\SVGSimpleGradient;
+use SKien\SVGCreator\Shapes\SVGLine;
 
 /**
  * Class SVGElementTest.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  *
  * @covers \SKien\SVGCreator\SVGElement
  */
@@ -122,6 +123,43 @@ final class SVGElementTest extends TestCase
         $this->assertEquals('1.23', $oDOMElement->getAttribute('attrib2'));
     }
 
+    public function testUseID() : void
+    {
+        $oUse = $this->oSVGElement->use('myID', 1, 2);
+        $this->assertEquals('#myID', $oUse->getAttribute('href'));
+        $this->assertEquals('1', $oUse->getAttribute('x'));
+        $this->assertEquals('2', $oUse->getAttribute('y'));
+    }
+
+    public function testUseElement() : void
+    {
+        $oElement = new SVGLine(10, 10, 100, 100);
+        $oElement->setID('myID');
+        $oUse = $this->oSVGElement->use($oElement, 1, 2);
+        $this->assertEquals('#myID', $oUse->getAttribute('href'));
+        $this->assertEquals('1', $oUse->getAttribute('x'));
+        $this->assertEquals('2', $oUse->getAttribute('y'));
+    }
+
+    /**
+     * @dataProvider fromPolarProvider
+     */
+    public function testFromPolar($r, $degrees, $xExp, $yExp) : void
+    {
+        [$x, $y] = $this->oSVGElement->fromPolar($r, $degrees);
+        $this->assertEquals($xExp, $x);
+        $this->assertEquals($yExp, $y);
+    }
+
+    public function fromPolarProvider() : array
+    {
+        return [
+            [2, 45, 1.414, 1.414],
+            [2, 60, 1    , 1.732],
+            [2, 30, 1.732, 1],
+        ];
+    }
+
     /* -------------------------- test for the SVGAttributesTrait -----------*/
 
     public function testSetGetHasAttribute() : void
@@ -144,6 +182,12 @@ final class SVGElementTest extends TestCase
         $this->oSVGElement->setAttribute('attrib1', null, true);
         // test, if attribute removed
         $this->assertFalse($this->oSVGElement->hasAttribute('attrib1'));
+    }
+
+    public function testSetViewbox(): void
+    {
+        $this->oSVGElement->setViewbox(-100, -100, 300, 200);
+        $this->assertEquals('-100 -100 300 200', $this->oSVGElement->getAttribute('viewBox'));
     }
 
     public function testSetGetID() : void

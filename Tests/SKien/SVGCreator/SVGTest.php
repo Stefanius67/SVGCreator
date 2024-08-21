@@ -6,6 +6,7 @@ namespace Tests\SKien\SVGCreator;
 
 use PHPUnit\Framework\TestCase;
 use SKien\SVGCreator\SVG;
+use SKien\SVGCreator\SVGSymbol;
 use SKien\SVGCreator\Filter\SVGSaturationFilter;
 use SKien\SVGCreator\Gradients\SVGSimpleGradient;
 use SKien\SVGCreator\Marker\SVGBasicMarker;
@@ -15,7 +16,7 @@ use SKien\SVGCreator\Shapes\SVGCircle;
  * Class SVGTest.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  *
  * @covers \SKien\SVGCreator\SVG
  */
@@ -58,12 +59,6 @@ final class SVGTest extends TestCase
         $this->assertEquals('100', $this->oSVG->getAttribute('height'));
     }
 
-    public function testSetViewbox(): void
-    {
-        $this->oSVG->setViewbox(-100, -100, 300, 200);
-        $this->assertEquals('-100 -100 300 200', $this->oSVG->getAttribute('viewBox'));
-    }
-
     public function testAddFilter(): void
     {
         $oFilter = $this->oSVG->addFilter(new SVGSaturationFilter(0.5));
@@ -85,6 +80,14 @@ final class SVGTest extends TestCase
         $oMarker = $this->oSVG->addMarker(new SVGBasicMarker(SVGBasicMarker::DOT));
         $this->assertIsObject($oMarker);
         $strID = $oMarker->getID();
+        $this->assertNotEmpty($strID);
+    }
+
+    public function testAddSymbol(): void
+    {
+        $oSymbol = $this->oSVG->addSymbol(new SVGSymbol(10, 10));
+        $this->assertIsObject($oSymbol);
+        $strID = $oSymbol->getID();
         $this->assertNotEmpty($strID);
     }
 

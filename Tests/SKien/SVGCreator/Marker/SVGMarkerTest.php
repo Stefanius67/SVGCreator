@@ -11,7 +11,7 @@ use SKien\SVGCreator\Marker\SVGMarker;
  * Class SVGMarkerTest.
  *
  * @author Stefanius <s.kientzler@online.de>
- * @copyright MIT License - see the LICENSE file for details
+ * @copyright GPLv3 License - see the LICENSE file for details
  *
  * @covers \SKien\SVGCreator\Marker\SVGMarker
  */
@@ -37,12 +37,6 @@ final class SVGMarkerTest extends TestCase
         parent::tearDown();
 
         unset($this->oSVGMarker);
-    }
-
-    public function testSetViewbox(): void
-    {
-        $this->oSVGMarker->setViewbox(-100, -10, 300, 200);
-        $this->assertEquals('-100 -10 300 200', $this->oSVGMarker->getAttribute('viewBox'));
     }
 
     public function testSetMarkerUnits() : void
